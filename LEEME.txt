@@ -1,0 +1,12 @@
+WEB 1 · VERSIÓN RESPONSIVE
+
+Archivos:
+- index.html
+- css/styles.css
+- js/main.js
+
+Esta versión conserva el diseño de escritorio y agrega al final del CSS
+un bloque responsive global para tablet y celular.
+
+IMPORTANTE:
+Copiá dentro de esta carpeta tu carpeta existente assets/ con todas las imágenes.
