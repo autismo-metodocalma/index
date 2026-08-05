@@ -1,0 +1,23 @@
+WEB2 · MÉTODO CALMA AVANZADO · VERSIÓN FINAL
+
+Contenido:
+- index.html
+- css/styles.css
+- js/main.js
+- assets/images/pagina-1.jpg a pagina-7.jpg
+
+Cambios:
+- Se usaron las 7 imágenes nuevas sin botones.
+- Se agregaron 7 botones HTML reales.
+- Cada botón está posicionado en el lugar donde aparecía antes.
+- Los botones son responsive para PC, tablet y celular.
+- Se agregó un botón fijo extra en celular.
+
+Todos los botones apuntan únicamente a:
+https://pay.hotmart.com/V105875412L
+
+AJUSTE DE POSICIÓN:
+- Página 2: botón bajado al 95.05 %
+- Página 3: botón bajado al 95.05 %
+- Página 4: botón bajado al 93.55 %
+- Página 5: botón bajado al 89.10 %
