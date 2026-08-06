@@ -1,0 +1,18 @@
+WEB3 · MÉTODO CALMA
+
+Reemplazá dentro de assets/images estos cinco archivos:
+pagina-1.jpg
+pagina-2.jpg
+pagina-3.jpg
+pagina-4.jpg
+pagina-5.jpg
+
+Conservá exactamente esos nombres.
+
+El proyecto incluye:
+- index.html
+- css/styles.css
+- js/main.js
+- widget Sales Funnel de Hotmart
+- responsive para PC, tablet y celular
+- protección contra modo oscuro forzado

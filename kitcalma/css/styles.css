@@ -1,0 +1,110 @@
+/* WEB3 · MÉTODO CALMA */
+:root{
+  color-scheme:light only;
+  --page-bg:#ffffff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  width:100%;
+  min-width:320px;
+  overflow-x:hidden;
+  background:#ffffff !important;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+.landing{
+  width:min(100%,921px);
+  margin:0 auto;
+  padding:0;
+  background:#ffffff;
+  box-shadow:0 0 34px rgba(60,35,45,.10);
+}
+
+.page-section{
+  position:relative;
+  width:100%;
+  margin:-1px 0 0;
+  padding:0;
+  line-height:0;
+  overflow:hidden;
+  background:#ffffff;
+}
+
+.page-section:first-child{
+  margin-top:0;
+}
+
+.page-section > img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0;
+  padding:0;
+  border:0;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+/* Widget Hotmart */
+#hotmart-sales-funnel{
+  width:100%;
+  max-width:921px;
+  margin:0 auto;
+  padding:0;
+  background:#ffffff;
+}
+
+#hotmart-sales-funnel iframe{
+  display:block;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  border:0 !important;
+}
+
+@media (max-width:900px){
+  .landing{
+    width:100%;
+    box-shadow:none;
+  }
+
+  #hotmart-sales-funnel{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:0;
+  }
+}
+
+@media (prefers-color-scheme:dark){
+  html,
+  body,
+  .landing,
+  .page-section,
+  #hotmart-sales-funnel{
+    background:#ffffff !important;
+  }
+
+  img{
+    filter:none !important;
+    opacity:1 !important;
+  }
+}
