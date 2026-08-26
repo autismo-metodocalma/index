@@ -1178,7 +1178,29 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
 }
 
 @media(max-width:480px){
-  h2{font-size:2.25rem}.intro{font-size:.94rem}.hero-trust span{font-size:.66rem}.header-change-market{display:none}.logo-link img{width:68px;height:68px}.btn-small{font-size:.62rem;padding:9px 12px}
+  h2{font-size:2.25rem}
+  .intro{font-size:.94rem}
+  .hero-trust span{font-size:.66rem}
+
+  /* MOSTRAR CAMBIAR PAÍS EN CELULAR */
+  .header-change-market{
+    display:inline-flex !important;
+    font-size:.62rem;
+    padding:8px 0;
+    gap:5px;
+    align-items:center;
+    white-space:nowrap;
+  }
+
+  .logo-link img{
+    width:68px;
+    height:68px;
+  }
+
+  .btn-small{
+    font-size:.62rem;
+    padding:9px 12px;
+  }
   .region-card{padding:30px 22px}.region-card h2{font-size:2rem}
   .benefit-card{padding:24px}.product-visual{height:245px}.offer-product{min-height:220px}.benefit-strip{grid-template-columns:1fr 1fr}.final-trust-line{line-height:1.6}
 }
