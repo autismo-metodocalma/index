@@ -2629,3 +2629,36 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   }
 
 }
+
+@media (max-width: 768px){
+
+  #panel-01-portada .hero-features{
+    margin-bottom:18px !important;
+  }
+
+  #panel-01-portada .hero-feature{
+    gap:4px !important;
+  }
+
+  #panel-01-portada .hero-feature-icon{
+    flex:0 0 34px !important;
+    width:34px !important;
+    height:34px !important;
+  }
+
+  #panel-01-portada .hero-feature-icon svg{
+    width:34px !important;
+    height:34px !important;
+  }
+
+  #panel-01-portada .hero-feature strong{
+    font-size:.64rem !important;
+    line-height:1.1 !important;
+  }
+
+  #panel-01-portada .hero-main-cta{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+}
