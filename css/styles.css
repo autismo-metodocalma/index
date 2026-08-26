@@ -2662,3 +2662,37 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   }
 
 }
+
+/* =========================================================
+   MOBILE — AJUSTE FINAL HEADER
+   Mostrar "Cambiar país" en celulares
+   ========================================================= */
+
+@media (max-width: 480px){
+
+  .header-actions{
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+  }
+
+  .header-market{
+    display:inline-flex !important;
+    font-size:.58rem !important;
+    white-space:nowrap !important;
+  }
+
+  .header-change-market{
+    display:inline-flex !important;
+    font-size:.58rem !important;
+    padding:6px 0 !important;
+    white-space:nowrap !important;
+  }
+
+  .btn-small{
+    padding:9px 11px !important;
+    font-size:.58rem !important;
+    white-space:nowrap !important;
+  }
+
+}
