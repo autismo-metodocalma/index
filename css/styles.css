@@ -2343,131 +2343,271 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
     margin-top: 20px;
 }
 
-/* =========================================
-   PORTADA MOBILE — ORDEN DEFINITIVO
-   Guía → Título → Video → Beneficios → Botón
-   ========================================= */
+/* =========================================================
+   MÉTODO CALMA — PORTADA MOBILE DEFINITIVA
+   Orden:
+   GUÍA → TÍTULO → VIDEO → BENEFICIOS → BOTÓN
+   ========================================================= */
 
 @media (max-width: 768px){
 
+  /* CONTENEDOR */
   #panel-01-portada .hero-grid{
     display:flex !important;
     flex-direction:column !important;
     gap:0 !important;
   }
 
+  /*
+     Sacamos la caja intermedia para que los elementos
+     puedan ordenarse directamente dentro del hero.
+  */
   #panel-01-portada .hero-copy-block{
     display:contents !important;
   }
 
-  /* 1. GUÍA EMOCIONAL */
+
+  /* =========================================
+     1. GUÍA EMOCIONAL
+     ========================================= */
+
   #panel-01-portada .hero-badge{
     order:1 !important;
+
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    width:max-content !important;
+    max-width:calc(100% - 20px) !important;
+
     margin:0 auto 24px !important;
+
+    font-size:.68rem !important;
+    letter-spacing:.10em !important;
+
+    padding:8px 14px !important;
   }
 
-  /* 2. TÍTULO */
+
+  /* =========================================
+     2. TÍTULO
+     ========================================= */
+
   #panel-01-portada .hero-copy-block h1{
     order:2 !important;
+
     width:100% !important;
     max-width:100% !important;
+
     margin:0 auto 28px !important;
-    text-align:center;
+    padding:0 !important;
+
+    text-align:center !important;
+
     font-size:clamp(2.55rem,11.5vw,3.55rem) !important;
     line-height:.97 !important;
+    letter-spacing:-.045em !important;
   }
 
   #panel-01-portada .hero-copy-block h1 em{
     display:block !important;
-    white-space:normal !important;
     margin-top:5px !important;
+    white-space:normal !important;
   }
 
-  /* 3. VIDEO */
+
+  /* =========================================
+     3. VIDEO
+     ========================================= */
+
   #panel-01-portada .hero-video-column{
     order:3 !important;
+
     width:100% !important;
     max-width:100% !important;
+
     margin:0 auto 30px !important;
+
+    position:relative !important;
   }
 
   #panel-01-portada .video-label{
     margin:0 0 9px 3px !important;
+
     font-size:.68rem !important;
-    text-align:left;
+    text-align:left !important;
   }
 
   #panel-01-portada .video-wrap{
     width:100% !important;
+
     aspect-ratio:1.42 / 1 !important;
+
     border:3px solid #111111 !important;
     border-radius:18px !important;
+
     overflow:hidden !important;
+
     background:#111111 !important;
   }
 
-  /* 4. BENEFICIOS */
+
+  /* =========================================
+     4. BENEFICIOS
+     LOS 3 EN UNA SOLA FILA
+     ICONO + TEXTO JUNTOS
+     ========================================= */
+
   #panel-01-portada .hero-features{
     order:4 !important;
+
     display:grid !important;
+
     grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+
     width:100% !important;
     max-width:100% !important;
-    gap:6px !important;
+
+    gap:8px !important;
+
     margin:0 auto 30px !important;
-    align-items:start !important;
-    justify-items:center !important;
+
+    align-items:center !important;
+    justify-items:stretch !important;
   }
 
   #panel-01-portada .hero-feature{
     display:flex !important;
-    flex-direction:column !important;
+
+    flex-direction:row !important;
+
     align-items:center !important;
-    justify-content:flex-start !important;
+    justify-content:center !important;
+
     width:100% !important;
     min-width:0 !important;
-    gap:7px !important;
-    text-align:center !important;
+
+    gap:6px !important;
+
+    text-align:left !important;
   }
 
   #panel-01-portada .hero-feature-icon{
-    flex:0 0 42px !important;
-    width:42px !important;
-    height:42px !important;
+    flex:0 0 36px !important;
+
+    width:36px !important;
+    height:36px !important;
   }
 
   #panel-01-portada .hero-feature-icon svg{
-    width:42px !important;
-    height:42px !important;
+    width:36px !important;
+    height:36px !important;
   }
 
   #panel-01-portada .hero-feature strong{
     display:block !important;
-    font-size:.70rem !important;
-    line-height:1.15 !important;
-    text-align:center !important;
+
+    font-size:.66rem !important;
+    line-height:1.12 !important;
+
+    text-align:left !important;
+
     white-space:normal !important;
   }
 
-  /* 5. BOTÓN */
+
+  /* =========================================
+     5. BOTÓN
+     ========================================= */
+
   #panel-01-portada .hero-main-cta{
     order:5 !important;
+
     display:flex !important;
+
     width:100% !important;
     max-width:100% !important;
+
     min-width:0 !important;
+
     margin:0 auto !important;
+
     min-height:58px !important;
+
     padding:16px 20px !important;
+
     font-size:.78rem !important;
   }
 
-  /* Texto descriptivo debajo del botón */
+
+  /* =========================================
+     TEXTO DESCRIPTIVO
+     
+     En mobile lo ocultamos para que la portada
+     quede limpia:
+     
+     GUÍA
+     TÍTULO
+     VIDEO
+     BENEFICIOS
+     BOTÓN
+     ========================================= */
+
   #panel-01-portada .hero-lead{
-    order:6 !important;
-    width:100% !important;
-    max-width:100% !important;
-    margin:28px auto 0 !important;
-    text-align:center;
+    display:none !important;
   }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width:430px){
+
+  #panel-01-portada .hero-shell{
+    width:calc(100% - 24px) !important;
+  }
+
+  #panel-01-portada .hero-badge{
+    font-size:.64rem !important;
+    padding:8px 12px !important;
+  }
+
+  #panel-01-portada .hero-copy-block h1{
+    font-size:clamp(2.35rem,11vw,3.1rem) !important;
+  }
+
+  #panel-01-portada .hero-features{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:4px !important;
+  }
+
+  #panel-01-portada .hero-feature{
+    gap:4px !important;
+  }
+
+  #panel-01-portada .hero-feature-icon{
+    flex:0 0 32px !important;
+    width:32px !important;
+    height:32px !important;
+  }
+
+  #panel-01-portada .hero-feature-icon svg{
+    width:32px !important;
+    height:32px !important;
+  }
+
+  #panel-01-portada .hero-feature strong{
+    font-size:.60rem !important;
+    line-height:1.1 !important;
+  }
+
+  #panel-01-portada .hero-main-cta{
+    min-height:56px !important;
+    font-size:.76rem !important;
+  }
+
 }
