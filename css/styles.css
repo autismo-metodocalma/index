@@ -2611,3 +2611,21 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   }
 
 }
+
+/* =========================================================
+   BOTÓN CAMBIAR PAÍS — MOBILE
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .country-selector,
+  .country-switcher,
+  .country-selector-mobile,
+  #country-selector,
+  [class*="country"]{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+
+}
