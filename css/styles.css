@@ -2925,8 +2925,36 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   }
 
 }
+/* =========================================
+   SITUACIÓN — TÍTULO CENTRADO EN MOBILE
+   ========================================= */
+
 @media (max-width: 768px) {
-  #panel-02-situacion .section-intro h2 {
+
+  #panel-02-situacion .section-intro {
+    width: 100% !important;
+    display: block !important;
     text-align: center !important;
   }
+
+  #panel-02-situacion .section-intro > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  #panel-02-situacion .section-intro h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  #panel-02-situacion .section-intro h2 em {
+    text-align: center !important;
+  }
+
 }
