@@ -3018,47 +3018,30 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
 @media (max-width: 768px) {
 
   #panel-09-kit .kit-heading {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: block !important;
     width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
     text-align: center !important;
   }
 
   #panel-09-kit .kit-heading h2 {
+    display: block !important;
     width: 100% !important;
-    max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    max-width: none !important;
+    margin: 0 auto 24px !important;
+    padding: 0 !important;
     text-align: center !important;
   }
 
   #panel-09-kit .kit-heading p {
-    width: 100% !important;
-    max-width: 650px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  #panel-09-kit .kit-heading > h2 {
     display: block !important;
     width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
     text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  #panel-09-kit .kit-heading > p {
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 
 }
