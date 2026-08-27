@@ -39,34 +39,17 @@
   function activateLandingSound() {
   if (!vimeoPlayer) return;
 
-  Promise.all([
-    vimeoPlayer.getCurrentTime(),
-    vimeoPlayer.getPaused()
-  ])
-  .then(([currentTime, wasPaused]) => {
+  vimeoPlayer.setVolume(1)
+    .then(() => {
 
-    return vimeoPlayer.setVolume(1).then(() => {
-
-      if (!wasPaused) {
-        return vimeoPlayer.setCurrentTime(currentTime)
-          .then(() => vimeoPlayer.play());
+      if (soundButton) {
+        soundButton.textContent = '🔇 SILENCIAR';
+        soundButton.setAttribute('aria-label', 'Silenciar video');
+        soundButton.classList.add('sound-on');
       }
 
-    });
-
-  })
-  .then(() => {
-
-    if (soundButton) {
-      soundButton.textContent = '🔇 SILENCIAR';
-      soundButton.setAttribute('aria-label', 'Silenciar video');
-      soundButton.classList.add('sound-on');
-    }
-
-  })
-  .catch((error) => {
-    console.log('No se pudo activar el sonido:', error);
-  });
+    })
+    .catch(() => {});
 }
 
 
@@ -84,6 +67,21 @@ function muteLandingVideo() {
 
     })
     .catch(() => {});
+}
+
+
+if (soundButton) {
+  soundButton.addEventListener('click', () => {
+
+    if (!vimeoPlayer) return;
+
+    if (soundButton.classList.contains('sound-on')) {
+      muteLandingVideo();
+    } else {
+      activateLandingSound();
+    }
+
+  });
 }
 
   function checkoutFor(countryCode) {
