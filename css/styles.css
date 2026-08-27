@@ -2833,3 +2833,31 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
     margin-top:22px;
   }
 }
+/* =========================================================
+   BENEFICIOS — MOBILE MÁS COMPACTO
+   ========================================================= */
+
+@media (max-width: 700px){
+
+  .benefit-card{
+    min-height:0 !important;
+    padding:24px 22px !important;
+  }
+
+  .benefit-card h3{
+    font-size:1.35rem !important;
+    line-height:1.12 !important;
+    margin-bottom:10px !important;
+  }
+
+  .benefit-card p{
+    font-size:.92rem !important;
+    line-height:1.4 !important;
+    margin-bottom:0 !important;
+  }
+
+  .benefit-card .section-number{
+    margin-bottom:20px !important;
+  }
+
+}
