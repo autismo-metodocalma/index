@@ -41,32 +41,34 @@
 
   vimeoPlayer.setVolume(1)
     .then(() => {
-
+      return vimeoPlayer.play();
+    })
+    .then(() => {
       if (soundButton) {
         soundButton.textContent = '🔇 SILENCIAR';
         soundButton.setAttribute('aria-label', 'Silenciar video');
         soundButton.classList.add('sound-on');
       }
-
     })
-    .catch(() => {});
+    .catch((error) => {
+      console.log('Error activando sonido:', error);
+    });
 }
-
 
 function muteLandingVideo() {
   if (!vimeoPlayer) return;
 
   vimeoPlayer.setVolume(0)
     .then(() => {
-
       if (soundButton) {
         soundButton.textContent = '🔊 ACTIVAR SONIDO';
         soundButton.setAttribute('aria-label', 'Activar sonido');
         soundButton.classList.remove('sound-on');
       }
-
     })
-    .catch(() => {});
+    .catch((error) => {
+      console.log('Error silenciando video:', error);
+    });
 }
 
 
