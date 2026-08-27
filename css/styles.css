@@ -2962,3 +2962,22 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   }
 
 }
+@media (max-width: 768px) {
+
+  #panel-03-metodo .section-intro {
+    text-align: center !important;
+  }
+
+  #panel-03-metodo .section-intro h2 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #panel-03-metodo .section-intro .intro {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+}
