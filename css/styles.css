@@ -3017,30 +3017,22 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
 
 @media (max-width: 768px) {
 
-  #panel-09-kit .kit-heading {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    text-align: center !important;
-  }
-
   #panel-09-kit .kit-heading h2 {
-    display: block !important;
     width: 100% !important;
-    max-width: none !important;
+    max-width: 100% !important;
     margin: 0 auto 24px !important;
     padding: 0 !important;
     text-align: center !important;
   }
 
+  #panel-09-kit .kit-heading h2 em {
+    display: inline !important;
+  }
+
   #panel-09-kit .kit-heading p {
-    display: block !important;
     width: 100% !important;
-    max-width: none !important;
+    max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 !important;
     text-align: center !important;
   }
 
