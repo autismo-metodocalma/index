@@ -2925,3 +2925,8 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   }
 
 }
+@media (max-width: 768px) {
+  #panel-02-situacion .section-intro h2 {
+    text-align: center !important;
+  }
+}
