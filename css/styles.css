@@ -2925,17 +2925,3 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   }
 
 }
-
-/* ==========================================================
-   BOTÓN SONIDO — EVITAR INTERACCIÓN CON VIMEO EN MOBILE
-   ========================================================== */
-
-#calma-sound-button{
-  pointer-events:auto !important;
-  touch-action:manipulation !important;
-  -webkit-tap-highlight-color:transparent;
-}
-
-#calma-vimeo{
-  touch-action:auto;
-}
