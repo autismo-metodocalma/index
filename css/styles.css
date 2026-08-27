@@ -2718,3 +2718,81 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   }
 
 }
+
+/* =========================================================
+   HEADER MOBILE — AJUSTE FINAL
+   Método CALMA + Cambiar país + CTA
+   ========================================================= */
+
+@media (max-width: 700px){
+
+  .topbar{
+    height:68px !important;
+  }
+
+  .topbar .bar-inner{
+    width:calc(100% - 28px) !important;
+  }
+
+  .logo-link img{
+    width:68px !important;
+    height:68px !important;
+  }
+
+  .header-actions{
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    margin-left:auto !important;
+  }
+
+  .header-market{
+    display:inline-flex !important;
+    font-size:.68rem !important;
+    white-space:nowrap !important;
+  }
+
+  .header-change-market{
+    display:inline-flex !important;
+    align-items:center !important;
+    gap:4px !important;
+    padding:6px 0 !important;
+    font-size:.64rem !important;
+    white-space:nowrap !important;
+  }
+
+  .header-change-market span{
+    font-size:.7rem !important;
+  }
+
+  .btn-small{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    white-space:nowrap !important;
+    padding:9px 11px !important;
+    font-size:.58rem !important;
+  }
+}
+
+
+/* Celulares muy chicos */
+@media (max-width:430px){
+
+  .header-actions{
+    gap:6px !important;
+  }
+
+  .header-market{
+    font-size:.61rem !important;
+  }
+
+  .header-change-market{
+    font-size:.58rem !important;
+  }
+
+  .btn-small{
+    padding:8px 9px !important;
+    font-size:.55rem !important;
+  }
+}
