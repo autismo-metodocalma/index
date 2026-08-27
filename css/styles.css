@@ -2796,3 +2796,40 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
     font-size:.55rem !important;
   }
 }
+/* =========================================================
+   SITUACIÓN — MOBILE MÁS COMPACTO
+   ========================================================= */
+
+@media (max-width: 800px){
+
+  .split-cards{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .story-card{
+    padding:20px 18px;
+    border-radius:20px;
+  }
+
+  .story-card h3{
+    font-size:1.25rem;
+    line-height:1.08;
+    margin-bottom:12px;
+  }
+
+  .story-card li{
+    padding-left:19px;
+    margin:7px 0;
+    font-size:.86rem;
+    line-height:1.4;
+  }
+
+  .story-card li:before{
+    font-size:.9rem;
+  }
+
+  .situation-panel>.shell>.btn{
+    margin-top:22px;
+  }
+}
