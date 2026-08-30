@@ -2,7 +2,7 @@
   'use strict';
 
   const HOTMART_URL = 'https://pay.hotmart.com/S105475830S?checkoutMode=10&bid=1779497014909';
-  const SHOPIFY_URL = 'https://12qrkf-eg.myshopify.com/products/cuando-el-diagnostico-cambia-todo';
+  const SHOPIFY_URL = 'https://metodo-calma-argentina.impultienda.ar/checkout/metodo-calma-embudo-principal';
   const STORAGE_KEY = 'metodoCalmaCountry';
 
   const regionModal = document.getElementById('region-modal');
