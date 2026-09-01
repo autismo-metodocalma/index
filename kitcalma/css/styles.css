@@ -1840,15 +1840,15 @@ h2 em {
   }
 
   .calma-option-content {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 45px;
+}
 
   
   .calma-option.active .calma-option-content {
-    padding:
-      15px 20px 40px;
-  }
+  padding: 15px 20px 45px !important;
+}
 
   .calma-option-content p {
     font-size: 17px;
