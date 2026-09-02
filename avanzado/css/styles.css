@@ -1321,72 +1321,94 @@ a {
 }
 
 /* =========================================
-   PAGINA-3 COMO FONDO DE BENEFICIOS MOBILE
+   BENEFICIOS MOBILE - PAGINA 3 DE FONDO
 ========================================= */
 
 @media (max-width: 600px) {
 
-  /* CONTENEDOR COMPLETO DE LOS BENEFICIOS */
-
   .hero-benefits {
-    position: relative !important;
+    position: relative;
+    overflow: hidden;
 
-    background-image: url("pagina-3.jpg") !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-
-    overflow: hidden !important;
+    background-image: url("pagina-3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
 
-  /* CAPA CLARA SOBRE LA IMAGEN */
+  /* Overlay suave sobre toda la imagen */
 
   .hero-benefits::before {
     content: "";
-
     position: absolute;
     inset: 0;
 
-    background: rgba(247, 239, 235, 0.58);
+    background: rgba(247, 239, 235, 0.45);
 
     z-index: 0;
-
-    pointer-events: none;
   }
 
 
-  /* LA GRILLA QUEDA POR ENCIMA DEL FONDO */
+  /* Contenido arriba del fondo */
 
   .hero-benefits-grid {
-    position: relative !important;
-    z-index: 2 !important;
-
-    background: transparent !important;
+    position: relative;
+    z-index: 2;
   }
 
 
-  /* CADA BENEFICIO SIN FONDO */
+  /* Cada beneficio */
 
   .hero-benefits-grid > div {
     position: relative;
-    z-index: 2;
 
-    background: transparent !important;
+    padding: 24px 18px;
+
+    background: rgba(255, 250, 247, 0.35);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    border-radius: 16px;
+
+    margin-bottom: 12px;
   }
 
 
-  /* TEXTO MÁS LEGIBLE SOBRE LA IMAGEN */
+  /* TITULOS */
 
-  .hero-benefits-grid strong,
-  .hero-benefits-grid h3 {
+  .hero-benefits h3 {
     position: relative;
     z-index: 3;
+
+    color: #3f3344;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+      0 1px 2px rgba(255,255,255,0.9),
+      0 2px 12px rgba(255,255,255,0.8);
   }
 
-  .hero-benefits-grid p {
+
+  /* TEXTOS */
+
+  .hero-benefits p {
     position: relative;
     z-index: 3;
+
+    color: #403b42;
+
+    font-weight: 500;
+
+    line-height: 1.65;
+
+    text-shadow:
+      0 1px 2px rgba(255,255,255,0.9),
+      0 2px 10px rgba(255,255,255,0.8);
   }
 
 }
