@@ -1998,3 +1998,18 @@ h2 em {
     }
   }
 
+/* =========================================
+   FORZAR COLORES ORIGINALES EN ANDROID
+========================================= */
+
+html {
+  color-scheme: light !important;
+  background-color: #f8f0e5 !important;
+}
+
+body {
+  color-scheme: light !important;
+  background-color: #f8f0e5 !important;
+  color: #302619 !important;
+}
+
