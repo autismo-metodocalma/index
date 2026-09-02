@@ -1562,3 +1562,37 @@ a {
   }
 
 }
+
+/* =========================================
+   HERO - MONITORES GRANDES
+========================================= */
+
+@media (min-width: 1400px) {
+
+  .hero {
+    height: 650px;
+    min-height: 650px;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    height: 650px;
+  }
+
+  .hero-background > img {
+    width: 104%;
+    max-width: none;
+    height: 100%;
+
+    left: 5%;
+
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+}
