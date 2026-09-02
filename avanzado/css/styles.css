@@ -1392,27 +1392,26 @@ a {
 }
 
 /* =========================================
-   PAGINA-3 COMO FONDO DE LA LISTA DEL MÉTODO
-   SOLO MOBILE
+   PAGINA-3 DE FONDO EN LOS BENEFICIOS
+   SOLO CELULAR
 ========================================= */
 
 @media (max-width: 600px) {
 
-  /* Ocultamos la imagen separada en celular */
+  /* Ocultamos la imagen separada */
   .method-image {
     display: none;
   }
 
 
-  /* Contenedor de los 4 textos */
+  /* CONTENEDOR CON IMAGEN DE FONDO */
 
   .method-list {
     position: relative;
 
     padding: 25px 22px;
 
-    background-image:
-      url("../assets/images/pagina-3.jpg");
+    background-image: url("pagina-3.jpg");
 
     background-size: cover;
     background-position: center center;
@@ -1424,25 +1423,24 @@ a {
   }
 
 
-  /* Capa clara sobre la imagen para leer bien */
+  /* OVERLAY PARA QUE EL TEXTO SE LEA */
 
   .method-list::before {
     content: "";
+
     position: absolute;
+
     inset: 0;
-  
-    background: linear-gradient(
-      to bottom,
-      rgba(247, 239, 235, 0.68),
-      rgba(247, 239, 235, 0.78)
-    );
-  
+
+    background: rgba(247, 239, 235, 0.78);
+
     z-index: 0;
+
     pointer-events: none;
   }
 
 
-  /* Cada item queda arriba de la imagen */
+  /* ITEMS SOBRE LA IMAGEN */
 
   .method-item {
     position: relative;
@@ -1454,7 +1452,7 @@ a {
     padding: 25px 0;
 
     border-bottom:
-      1px solid rgba(123, 85, 125, 0.22);
+      1px solid rgba(123, 85, 125, 0.25);
   }
 
 
@@ -1463,25 +1461,46 @@ a {
   }
 
 
-  /* Mejor contraste */
+  /* TITULOS */
 
   .method-item h3 {
+    position: relative;
+
+    z-index: 2;
+
     color: var(--purple-dark);
+
+    text-shadow:
+      0 1px 8px rgba(255,255,255,0.45);
   }
 
+
+  /* DESCRIPCIONES */
 
   .method-item p {
+    position: relative;
+
+    z-index: 2;
+
     color: var(--text);
+
     font-weight: 500;
+
+    text-shadow:
+      0 1px 8px rgba(255,255,255,0.50);
   }
 
 
-  /* Iconos un poco más visibles */
+  /* ICONOS */
 
   .method-icon {
-    background: rgba(247, 239, 235, 0.80);
+    position: relative;
 
-    backdrop-filter: blur(5px);
+    z-index: 2;
+
+    background: rgba(247, 239, 235, 0.82);
+
+    backdrop-filter: blur(6px);
   }
 
 }
