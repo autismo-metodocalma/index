@@ -1361,3 +1361,49 @@ a {
   }
 
 }
+
+/* =========================================
+   HERO EXCLUSIVO PARA CELULAR
+   IMAGEN HERO-MOBIL
+========================================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    position: relative;
+    min-height: auto;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* Ocultamos la composición original */
+
+  .hero-content {
+    display: none;
+  }
+
+  .hero-background {
+    min-height: auto;
+    height: auto;
+
+    background-image: url("hero-mobil.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    aspect-ratio: 9 / 16;
+  }
+
+  /* Ocultamos la imagen original del hero */
+
+  .hero-background > img {
+    display: none;
+  }
+
+  /* Ocultamos overlays anteriores */
+
+  .hero-overlay {
+    display: none;
+  }
+
+}
