@@ -1,5 +1,6 @@
 :root {
   color-scheme: light only;
+
   --cream: #f7efeb;
   --cream-2: #fbf7f4;
   --lavender: #e6d6e7;
@@ -871,25 +872,6 @@ a {
   }
 }
 
-@media (prefers-color-scheme:dark) {
-
-  html,
-  body,
-  .site-header,
-  .section,
-  .hero,
-  .method,
-  .about,
-  .checkout {
-    background: var(--cream) !important;
-    color: var(--text) !important
-  }
-
-  .section-soft {
-    background: var(--cream-2) !important
-  }
-}
-
 
 
 /* =========================================================
@@ -1434,7 +1416,7 @@ a {
     padding: 25px 22px;
 
     background-image:
-      url("../assets/images/fondo.png");
+      url("../assets/images/pagina-3.jpg");
 
     background-size: cover;
     background-position: center center;
