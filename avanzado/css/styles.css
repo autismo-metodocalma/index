@@ -1485,3 +1485,71 @@ a {
   }
 
 }
+/* =========================================
+   HERO MOBILE + BENEFICIOS
+   SOLO CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* HERO */
+
+  .hero {
+    position: relative;
+    padding: 0;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+
+  /* Ocultamos el contenido original del hero */
+
+  .hero-content {
+    display: none;
+  }
+
+
+  /* Reemplazamos imagen desktop por HERO MOBILE */
+
+  .hero-background {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+
+    aspect-ratio: 9 / 16;
+
+    background-image: url("../assets/images/hero-mobil.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+
+  /* Ocultamos imagen original desktop */
+
+  .hero-background > img {
+    display: none;
+  }
+
+
+  /* Quitamos overlay anterior */
+
+  .hero-overlay {
+    display: none;
+  }
+
+
+  /* =====================================
+     BENEFICIOS QUE VIENEN DESPUÉS DEL HERO
+  ===================================== */
+
+  .hero-benefits {
+    display: block;
+  }
+
+
+  .hero-benefits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
