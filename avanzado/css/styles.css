@@ -908,18 +908,18 @@ a {
 }
 
 .hero-background > img {
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  inset: 0;
 
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    max-width: none;
+  max-width: none;
 
-    object-fit: cover;
+  object-fit: cover;
 
-    /* Mostrar más la parte inferior de la composición */
-    object-position: 60% bottom;
+  /* Mostrar más la parte inferior de la composición */
+  object-position: 60% bottom;
 }
 
 .hero-overlay {
@@ -1191,8 +1191,8 @@ a {
 
   .hero-background {
     position: relative;
-    min-height: 900px;
-    height: 115svh;
+    min-height: 820px;
+    height: 105svh;
     overflow: hidden;
   }
 
@@ -1208,7 +1208,7 @@ a {
     left: 0;
 
     object-fit: cover;
-    object-position: 60% center;
+    object-position: 60% bottom;
   }
 
 
@@ -1239,8 +1239,8 @@ a {
     position: relative;
     z-index: 3;
 
-    min-height: 900px;
-    height: 115svh;
+    min-height: 820px;
+    height: 105svh;
 
     padding: 48px 28px 0;
 
@@ -1316,6 +1316,48 @@ a {
 
     text-shadow:
       0 2px 14px rgba(255,255,255,.75);
+  }
+
+}
+
+/* =========================================
+   BENEFICIOS MOBILE - FONDO PAGINA 3
+========================================= */
+
+@media (max-width: 600px) {
+
+  .hero-benefits {
+    position: relative;
+
+    background-image: url("pagina-3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+  }
+
+
+  /* Capa para mantener legibilidad del texto */
+
+  .hero-benefits::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(247, 239, 235, 0.82);
+
+    backdrop-filter: blur(2px);
+
+    pointer-events: none;
+  }
+
+
+  /* Mantener el contenido por encima del fondo */
+
+  .hero-benefits-grid {
+    position: relative;
+    z-index: 1;
   }
 
 }
