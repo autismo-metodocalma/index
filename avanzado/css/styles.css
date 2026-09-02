@@ -1317,3 +1317,78 @@ a {
   }
 
 }
+/* =========================================================
+   MÉTODO MOBILE
+   pagina-3 como fondo de los textos
+   SOLO CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  /* La sección donde están imagen + textos */
+
+  .method {
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+      linear-gradient(
+        rgba(247, 239, 235, 0.86),
+        rgba(247, 239, 235, 0.88)
+      ),
+      url("../assets/images/pagina-3.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+  /* Ocultamos la imagen independiente en celular
+     porque ahora será el fondo */
+
+  .method-image {
+    display: none;
+  }
+
+
+  /* Los textos ocupan todo el ancho */
+
+  .method-layout {
+    display: block;
+  }
+
+
+  .method-list {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  /* Cada item */
+
+  .method-item {
+    background: rgba(255, 253, 251, 0.72);
+
+    backdrop-filter: blur(3px);
+
+    border-radius: 18px;
+
+    padding: 25px 18px;
+
+    margin-bottom: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    box-shadow:
+      0 10px 30px rgba(74, 51, 76, 0.06);
+  }
+
+
+  /* Último item */
+
+  .method-item:last-child {
+    margin-bottom: 0;
+  }
+
+}
