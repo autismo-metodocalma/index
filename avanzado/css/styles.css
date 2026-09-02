@@ -1428,19 +1428,16 @@ a {
 
   .method-list::before {
     content: "";
-
     position: absolute;
     inset: 0;
-
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(247, 239, 235, 0.72),
-        rgba(247, 239, 235, 0.82)
-      );
-
+  
+    background: linear-gradient(
+      to bottom,
+      rgba(247, 239, 235, 0.68),
+      rgba(247, 239, 235, 0.78)
+    );
+  
     z-index: 0;
-
     pointer-events: none;
   }
 
