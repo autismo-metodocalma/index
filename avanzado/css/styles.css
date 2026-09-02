@@ -1361,3 +1361,73 @@ a {
   }
 
 }
+/* =========================================
+   PAGINA-3 COMO FONDO DE BENEFICIOS MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* CONTENEDOR COMPLETO DE LOS BENEFICIOS */
+
+  .hero-benefits {
+    position: relative !important;
+
+    background-image: url("pagina-3.jpg") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+
+    overflow: hidden !important;
+  }
+
+
+  /* CAPA CLARA SOBRE LA IMAGEN */
+
+  .hero-benefits::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(247, 239, 235, 0.58);
+
+    z-index: 0;
+
+    pointer-events: none;
+  }
+
+
+  /* LA GRILLA QUEDA POR ENCIMA DEL FONDO */
+
+  .hero-benefits-grid {
+    position: relative !important;
+    z-index: 2 !important;
+
+    background: transparent !important;
+  }
+
+
+  /* CADA BENEFICIO SIN FONDO */
+
+  .hero-benefits-grid > div {
+    position: relative;
+    z-index: 2;
+
+    background: transparent !important;
+  }
+
+
+  /* TEXTO MÁS LEGIBLE SOBRE LA IMAGEN */
+
+  .hero-benefits-grid strong,
+  .hero-benefits-grid h3 {
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-benefits-grid p {
+    position: relative;
+    z-index: 3;
+  }
+
+}
