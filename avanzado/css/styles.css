@@ -1553,3 +1553,12 @@ a {
   }
 
 }
+@media (max-width: 600px) {
+
+  .hero::before,
+  .hero::after,
+  .hero-overlay {
+    display: none !important;
+  }
+
+}
