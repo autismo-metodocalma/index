@@ -1321,47 +1321,6 @@ a {
 }
 
 /* =========================================
-   BENEFICIOS MOBILE - FONDO PAGINA 3
-========================================= */
-
-@media (max-width: 600px) {
-
-  .hero-benefits {
-    position: relative;
-
-    background-image: url("pagina-3.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    overflow: hidden;
-  }
-
-
-  /* Capa para mantener legibilidad del texto */
-
-  .hero-benefits::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: rgba(247, 239, 235, 0.82);
-
-    backdrop-filter: blur(2px);
-
-    pointer-events: none;
-  }
-
-
-  /* Mantener el contenido por encima del fondo */
-
-  .hero-benefits-grid {
-    position: relative;
-    z-index: 1;
-  }
-
-}
-/* =========================================
    PAGINA-3 COMO FONDO DE BENEFICIOS MOBILE
 ========================================= */
 
@@ -1428,6 +1387,104 @@ a {
   .hero-benefits-grid p {
     position: relative;
     z-index: 3;
+  }
+
+}
+
+/* =========================================
+   PAGINA-3 COMO FONDO DE LA LISTA DEL MÉTODO
+   SOLO MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* Ocultamos la imagen separada en celular */
+  .method-image {
+    display: none;
+  }
+
+
+  /* Contenedor de los 4 textos */
+
+  .method-list {
+    position: relative;
+
+    padding: 25px 22px;
+
+    background-image:
+      url("../assets/images/pagina-3.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+  }
+
+
+  /* Capa clara sobre la imagen para leer bien */
+
+  .method-list::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(247, 239, 235, 0.72),
+        rgba(247, 239, 235, 0.82)
+      );
+
+    z-index: 0;
+
+    pointer-events: none;
+  }
+
+
+  /* Cada item queda arriba de la imagen */
+
+  .method-item {
+    position: relative;
+
+    z-index: 1;
+
+    background: transparent;
+
+    padding: 25px 0;
+
+    border-bottom:
+      1px solid rgba(123, 85, 125, 0.22);
+  }
+
+
+  .method-item:last-child {
+    border-bottom: none;
+  }
+
+
+  /* Mejor contraste */
+
+  .method-item h3 {
+    color: var(--purple-dark);
+  }
+
+
+  .method-item p {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+
+  /* Iconos un poco más visibles */
+
+  .method-icon {
+    background: rgba(247, 239, 235, 0.80);
+
+    backdrop-filter: blur(5px);
   }
 
 }
