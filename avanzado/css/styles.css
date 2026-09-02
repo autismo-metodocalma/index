@@ -1454,3 +1454,57 @@ a {
   }
 
 }
+/* =========================================
+   FONDO REAL PAGINA-3 DETRAS DE BENEFICIOS
+========================================= */
+
+@media (max-width: 600px) {
+
+  .hero-benefits {
+    position: relative !important;
+
+    background-image: url("pagina-3.jpg") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+
+    overflow: hidden;
+  }
+
+
+  /* Capa suave para mantener legibilidad */
+
+  .hero-benefits::before {
+    content: "" !important;
+
+    position: absolute !important;
+    inset: 0 !important;
+
+    background: rgba(247, 239, 235, 0.62) !important;
+
+    z-index: 0 !important;
+
+    pointer-events: none;
+  }
+
+
+  /* La grilla queda arriba */
+
+  .hero-benefits-grid {
+    position: relative !important;
+    z-index: 2 !important;
+
+    background: transparent !important;
+  }
+
+
+  /* IMPORTANTE: quitar fondos de cada item */
+
+  .hero-benefits-grid > div {
+    position: relative !important;
+    z-index: 2 !important;
+
+    background: transparent !important;
+  }
+
+}
