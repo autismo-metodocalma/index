@@ -1344,20 +1344,16 @@ a {
 
   .hero-benefits::before {
     content: "";
+
     position: absolute;
     inset: 0;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(247, 239, 235, 0.92) 0%,
-            rgba(247, 239, 235, 0.82) 45%,
-            rgba(247, 239, 235, 0.68) 100%
-        );
+    background: rgba(247, 239, 235, 0.58);
 
     z-index: 0;
+
     pointer-events: none;
-}
+  }
 
 
   /* LA GRILLA QUEDA POR ENCIMA DEL FONDO */
@@ -1396,26 +1392,27 @@ a {
 }
 
 /* =========================================
-   PAGINA-3 DE FONDO EN LOS BENEFICIOS
-   SOLO CELULAR
+   PAGINA-3 COMO FONDO DE LA LISTA DEL MÉTODO
+   SOLO MOBILE
 ========================================= */
 
 @media (max-width: 600px) {
 
-  /* Ocultamos la imagen separada */
+  /* Ocultamos la imagen separada en celular */
   .method-image {
     display: none;
   }
 
 
-  /* CONTENEDOR CON IMAGEN DE FONDO */
+  /* Contenedor de los 4 textos */
 
   .method-list {
     position: relative;
 
     padding: 25px 22px;
 
-    background-image: url("pagina-3.jpg");
+    background-image:
+      url("../assets/images/pagina-3.jpg");
 
     background-size: cover;
     background-position: center center;
@@ -1427,24 +1424,25 @@ a {
   }
 
 
-  /* OVERLAY PARA QUE EL TEXTO SE LEA */
+  /* Capa clara sobre la imagen para leer bien */
 
   .method-list::before {
     content: "";
-
     position: absolute;
-
     inset: 0;
-
-    background: rgba(247, 239, 235, 0.78);
-
+  
+    background: linear-gradient(
+      to bottom,
+      rgba(247, 239, 235, 0.68),
+      rgba(247, 239, 235, 0.78)
+    );
+  
     z-index: 0;
-
     pointer-events: none;
   }
 
 
-  /* ITEMS SOBRE LA IMAGEN */
+  /* Cada item queda arriba de la imagen */
 
   .method-item {
     position: relative;
@@ -1456,7 +1454,7 @@ a {
     padding: 25px 0;
 
     border-bottom:
-      1px solid rgba(123, 85, 125, 0.25);
+      1px solid rgba(123, 85, 125, 0.22);
   }
 
 
@@ -1465,46 +1463,25 @@ a {
   }
 
 
-  /* TITULOS */
+  /* Mejor contraste */
 
   .method-item h3 {
-    position: relative;
-
-    z-index: 2;
-
     color: var(--purple-dark);
-
-    text-shadow:
-      0 1px 8px rgba(255,255,255,0.45);
   }
 
-
-  /* DESCRIPCIONES */
 
   .method-item p {
-    position: relative;
-
-    z-index: 2;
-
     color: var(--text);
-
     font-weight: 500;
-
-    text-shadow:
-      0 1px 8px rgba(255,255,255,0.50);
   }
 
 
-  /* ICONOS */
+  /* Iconos un poco más visibles */
 
   .method-icon {
-    position: relative;
+    background: rgba(247, 239, 235, 0.80);
 
-    z-index: 2;
-
-    background: rgba(247, 239, 235, 0.82);
-
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(5px);
   }
 
 }
@@ -1582,6 +1559,40 @@ a {
   .hero::after,
   .hero-overlay {
     display: none !important;
+  }
+
+}
+
+/* =========================================
+   HERO - MONITORES GRANDES
+========================================= */
+
+@media (min-width: 1400px) {
+
+  .hero {
+    height: 650px;
+    min-height: 650px;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    height: 650px;
+  }
+
+  .hero-background > img {
+    width: 104%;
+    max-width: none;
+    height: 100%;
+
+    left: 5%;
+
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
 }
