@@ -910,11 +910,16 @@ a {
 .hero-background > img {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   max-width: none;
+
   object-fit: cover;
-  object-position: center center;
+
+  /* Mostrar más la parte inferior de la composición */
+  object-position: 60% bottom;
 }
 
 .hero-overlay {
@@ -1186,8 +1191,8 @@ a {
 
   .hero-background {
     position: relative;
-    min-height: 900px;
-    height: 115svh;
+    min-height: 820px;
+    height: 105svh;
     overflow: hidden;
   }
 
@@ -1203,7 +1208,7 @@ a {
     left: 0;
 
     object-fit: cover;
-    object-position: 60% center;
+    object-position: 60% bottom;
   }
 
 
@@ -1234,8 +1239,8 @@ a {
     position: relative;
     z-index: 3;
 
-    min-height: 900px;
-    height: 115svh;
+    min-height: 820px;
+    height: 105svh;
 
     padding: 48px 28px 0;
 
