@@ -1598,3 +1598,59 @@ a {
   }
 
 }
+
+/* =========================================
+   FONDO ESPECIAL SECCION MÉTODO - MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .method-list {
+    position: relative;
+    background-image: url("../assets/images/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 30px 20px;
+    border-radius: 28px;
+    overflow: hidden;
+  }
+
+
+  /* Capa clara sobre la imagen */
+
+  .method-list::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(248, 243, 239, 0.78);
+
+    z-index: 0;
+  }
+
+
+  /* El contenido queda arriba del fondo */
+
+  .method-list .method-item {
+    position: relative;
+    z-index: 1;
+  }
+
+
+  /* Mejorar lectura del texto */
+
+  .method-list h3 {
+    color: #493b4c;
+    text-shadow: 0 1px 8px rgba(255, 255, 255, 0.8);
+  }
+
+
+  .method-list p {
+    color: #4f4b52;
+    text-shadow: 0 1px 8px rgba(255, 255, 255, 0.9);
+  }
+
+}
