@@ -625,6 +625,21 @@ footer p { margin: 4px 0 0; }
   .brand-title { font-size: 21px; }
   .brand-subtitle { font-size: 8px; }
 
+  .hero {
+    min-height: 720px;
+    display: block;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,250,244,.97) 0%,
+        rgba(255,250,244,.90) 42%,
+        rgba(255,250,244,.45) 68%,
+        rgba(255,250,244,.10) 100%
+      ),
+      url("../assets/hero-mama.jpg") center center / cover no-repeat;
+  }
+
   .hero-copy {
     padding-left: 22px;
     padding-right: 22px;
@@ -644,8 +659,8 @@ footer p { margin: 4px 0 0; }
 
   .audio-cta strong { font-size: 15px; }
 
-  .hero-visual {
-    min-height: 430px;
+    .hero-visual {
+    display: none;
   }
 
   .hero-script {
