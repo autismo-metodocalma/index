@@ -626,19 +626,20 @@ footer p { margin: 4px 0 0; }
   .brand-subtitle { font-size: 8px; }
 
   .hero {
-    min-height: 720px;
-    display: block;
+  min-height: 720px;
+  display: block;
 
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255,250,244,.97) 0%,
-        rgba(255,250,244,.90) 42%,
-        rgba(255,250,244,.45) 68%,
-        rgba(255,250,244,.10) 100%
-      ),
-      url("../assets/hero-mama.jpg") center center / cover no-repeat;
-  }
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,250,244,.98) 0%,
+      rgba(255,250,244,.96) 38%,
+      rgba(255,250,244,.72) 58%,
+      rgba(255,250,244,.32) 78%,
+      rgba(255,250,244,.12) 100%
+    ),
+    url("../assets/hero-mama.jpg") center center / cover no-repeat;
+}
 
   .hero-copy {
     padding-left: 22px;
@@ -742,5 +743,21 @@ footer p { margin: 4px 0 0; }
   .next-step-mama {
     width: min(660px, 120%);
     max-height: 410px;
+  }
+
+   .microcopy {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 18px auto 0;
+    padding: 8px 14px;
+    border-radius: 30px;
+    color: #6e5576;
+    background: rgba(255,250,244,.72);
+    text-shadow: none;
+  }
+
+  .microcopy span {
+    font-size: 21px;
   }
 }
