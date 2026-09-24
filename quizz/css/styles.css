@@ -689,28 +689,16 @@ footer p { margin: 4px 0 0; }
     border-bottom: 0;
   }
 
-    /* PRÓXIMO PASO - CELULAR */
   .next-step {
     grid-template-columns: 1fr;
     min-height: 0;
     padding: 58px 20px 34px;
     text-align: center;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255,250,244,.96) 0%,
-        rgba(248,241,248,.88) 45%,
-        rgba(248,241,248,.72) 100%
-      ),
-      url("../assets/hero-mama.jpg") center bottom / cover no-repeat;
   }
 
   .next-step-copy {
     max-width: 700px;
     margin: 0 auto;
-    position: relative;
-    z-index: 3;
   }
 
   .next-step-copy h2 {
@@ -731,8 +719,13 @@ footer p { margin: 4px 0 0; }
     margin-left: 0;
   }
 
-  /* La imagen queda como fondo */
   .next-step-visual {
-    display: none;
+    min-height: 330px;
+    margin-top: 10px;
+  }
+
+  .next-step-mama {
+    width: min(660px, 120%);
+    max-height: 410px;
   }
 }
