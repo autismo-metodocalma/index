@@ -809,4 +809,75 @@ footer p { margin: 4px 0 0; }
     outline: none;
   }
 
+  /* ================================
+   CENTRAR TEXTOS EN CELULAR
+   ================================ */
+
+@media (max-width: 768px) {
+
+  /* HERO */
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy h1,
+  .hero-copy .lead,
+  .hero-copy .microcopy,
+  .hero-copy .eyebrow {
+    text-align: center;
+  }
+
+  /* TU MOMENTO */
+  .audio-copy {
+    text-align: center;
+  }
+
+  .audio-copy h2,
+  .audio-copy p,
+  .audio-copy .section-kicker {
+    text-align: center;
+  }
+
+  /* Aviso */
+  .notice {
+    text-align: center;
+  }
+
+  /* APOYO EMOCIONAL */
+  .section-heading {
+    text-align: center;
+  }
+
+  .support-card {
+    text-align: center;
+  }
+
+  .support-card h3,
+  .support-card p {
+    text-align: center;
+  }
+
+  /* CTA FINAL */
+  .next-step-copy {
+    text-align: center;
+  }
+
+  .next-step-kicker,
+  .next-step-copy h2,
+  .next-step-text {
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+  }
+
+  footer p,
+  .footer-brand {
+    text-align: center;
+  }
+
+}
+
 }
