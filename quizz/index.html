@@ -296,9 +296,8 @@
 }
 
     .result-content {
-    padding: 32px;
-    text-align: center;
-}
+        padding: 32px;
+    }
 
     .result-content h2 {
         font-family: Georgia, serif;
@@ -310,23 +309,20 @@
     }
 
     .result-content p {
-    max-width: 680px;
-    margin: 0 auto 20px;
-    font-size: 17px;
-    line-height: 1.75;
-    color: #625963;
-}
+        font-size: 17px;
+        line-height: 1.75;
+        color: #625963;
+        margin-bottom: 20px;
+    }
 
     .pause-box {
-    max-width: 680px;
-    margin: 25px auto 0;
-    padding: 22px;
-    background: linear-gradient(135deg, #f6eef7, #fbf0f1);
-    border-radius: 20px;
-    color: #665966;
-    line-height: 1.65;
-    text-align: center;
-}
+        margin-top: 25px;
+        padding: 22px;
+        background: linear-gradient(135deg, #f6eef7, #fbf0f1);
+        border-radius: 20px;
+        color: #665966;
+        line-height: 1.65;
+    }
 
     .pause-box strong {
         display: block;
@@ -335,20 +331,19 @@
     }
 
     .result-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    margin-top: 27px;
-    padding: 15px 20px;
-    border-radius: 13px;
-    color: #9471a0;
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid #d5c1d8;
-    background: #fffafd;
-    transition: .2s ease;
-}
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 27px;
+        padding: 15px 20px;
+        border-radius: 13px;
+        color: #9471a0;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #d5c1d8;
+        background: #fffafd;
+        transition: .2s ease;
+    }
 
     .result-button:hover {
         background: #f7eff8;
@@ -484,6 +479,18 @@
 
         <div class="answers" id="answers"></div>
 
+
+        <div class="navigation">
+
+            <button class="back-btn" id="backBtn">
+                ← Atrás
+            </button>
+
+            <button class="next-btn" id="nextBtn" disabled>
+                Siguiente
+            </button>
+
+        </div>
 
     </section>
 
@@ -696,6 +703,8 @@ let selectedAnswers = Array(questions.length).fill(null);
 
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers");
+const nextBtn = document.getElementById("nextBtn");
+const backBtn = document.getElementById("backBtn");
 
 const progressFill = document.getElementById("progressFill");
 const progressText = document.getElementById("progressText");
@@ -768,6 +777,56 @@ setTimeout(() => {
     progressPercent.textContent =
         percentage + "%";
 
+
+    backBtn.style.visibility =
+        currentQuestion === 0 ? "hidden" : "visible";
+
+
+    nextBtn.textContent =
+        currentQuestion === questions.length - 1
+            ? "Enviar"
+            : "Siguiente";
+
+
+    nextBtn.disabled =
+        selectedAnswers[currentQuestion] === null;
+}
+
+
+nextBtn.onclick = () => {
+
+    if (selectedAnswers[currentQuestion] === null) {
+        return;
+    }
+
+    if (currentQuestion < questions.length - 1) {
+
+        currentQuestion++;
+
+        loadQuestion();
+
+
+    } else {
+
+        showResult();
+
+    }
+
+};
+
+
+backBtn.onclick = () => {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        loadQuestion();
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
     }
 
