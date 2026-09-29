@@ -30,8 +30,6 @@
         padding: 25px 18px 50px;
     }
 
-    /* ---------------- HEADER ---------------- */
-
     .top {
         text-align: center;
         padding: 20px 10px 28px;
@@ -74,8 +72,6 @@
         letter-spacing: .3px;
     }
 
-    /* ---------------- QUIZ CARD ---------------- */
-
     .quiz-card {
         background: rgba(255,255,255,.84);
         backdrop-filter: blur(10px);
@@ -87,19 +83,19 @@
             0 3px 12px rgba(92, 69, 89, .04);
     }
 
-    /* ---------------- PROGRESS ---------------- */
-
     .progress-area {
         margin-bottom: 28px;
     }
 
     .progress-top {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        gap: 10px;
         margin-bottom: 9px;
         font-size: 13px;
         color: #958793;
+        text-align: center;
     }
 
     .progress-bar {
@@ -118,10 +114,9 @@
         transition: width .45s ease;
     }
 
-    /* ---------------- QUESTION ---------------- */
-
     .question-number {
         color: #aa8ca9;
+        text-align: center;
         font-size: 13px;
         font-weight: 600;
         letter-spacing: 1px;
@@ -135,10 +130,9 @@
         font-weight: 500;
         line-height: 1.3;
         color: #413743;
+        text-align: center;
         margin-bottom: 25px;
     }
-
-    /* ---------------- ANSWERS ---------------- */
 
     .answers {
         display: grid;
@@ -148,7 +142,7 @@
     .answer {
         position: relative;
         width: 100%;
-        text-align: left;
+        text-align: center;
         border: 1px solid #e4dce3;
         background: #fffdfc;
         border-radius: 18px;
@@ -198,69 +192,6 @@
         color: white;
     }
 
-    /* ---------------- NAVIGATION ---------------- */
-
-    .navigation {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        margin-top: 27px;
-    }
-
-    .back-btn,
-    .next-btn {
-        border: none;
-        border-radius: 14px;
-        padding: 14px 22px;
-        font-size: 15px;
-        cursor: pointer;
-        transition: .2s ease;
-    }
-
-    .back-btn {
-        background: transparent;
-        color: #897b87;
-    }
-
-    .back-btn:hover {
-        background: #f4eef3;
-    }
-
-    .next-btn {
-    background: linear-gradient(135deg, #92709d, #aa7f91);
-    color: white;
-    min-width: 125px;
-    box-shadow: 0 8px 20px rgba(133, 99, 132, .20);
-    transition: all .25s ease;
-}
-
-    .next-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 11px 25px rgba(133, 99, 132, .25);
-    }
-
-    .next-btn:disabled {
-    background: #e7e1e6;
-    color: #aaa1a9;
-    opacity: 1;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.next-btn:not(:disabled) {
-    background: linear-gradient(135deg, #76547f, #915d73);
-    color: #ffffff;
-    box-shadow: 0 8px 24px rgba(112, 76, 111, .28);
-}
-
-.next-btn:not(:disabled):hover {
-    transform: translateY(-2px);
-    box-shadow: 0 11px 28px rgba(112, 76, 111, .34);
-}
-
-    /* ---------------- RESULT ---------------- */
-
     .result {
         display: none;
         animation: appear .7s ease;
@@ -287,16 +218,17 @@
     }
 
     .result-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
 
     .result-content {
         padding: 32px;
+        text-align: center;
     }
 
     .result-content h2 {
@@ -309,19 +241,22 @@
     }
 
     .result-content p {
+        max-width: 680px;
+        margin: 0 auto 20px;
         font-size: 17px;
         line-height: 1.75;
         color: #625963;
-        margin-bottom: 20px;
     }
 
     .pause-box {
-        margin-top: 25px;
+        max-width: 680px;
+        margin: 25px auto 0;
         padding: 22px;
         background: linear-gradient(135deg, #f6eef7, #fbf0f1);
         border-radius: 20px;
         color: #665966;
         line-height: 1.65;
+        text-align: center;
     }
 
     .pause-box strong {
@@ -333,6 +268,7 @@
     .result-button {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 9px;
         margin-top: 27px;
         padding: 15px 20px;
@@ -360,8 +296,6 @@
         font-size: 14px;
         text-decoration: underline;
     }
-
-    /* ---------------- MOBILE ---------------- */
 
     @media (max-width: 600px) {
 
@@ -395,10 +329,6 @@
             font-size: 15px;
         }
 
-        .navigation {
-            margin-top: 22px;
-        }
-
         .result-content {
             padding: 24px 20px;
         }
@@ -410,15 +340,6 @@
         .result-content p {
             font-size: 16px;
         }
-
-        .next-btn {
-            flex: 1;
-        }
-
-        .back-btn {
-            padding-left: 8px;
-            padding-right: 8px;
-        }
     }
 </style>
 </head>
@@ -426,8 +347,6 @@
 <body>
 
 <div class="quiz-wrapper">
-
-    <!-- INTRO -->
 
     <section class="top" id="intro">
 
@@ -452,9 +371,6 @@
 
     </section>
 
-
-    <!-- QUIZ -->
-
     <section class="quiz-card" id="quiz">
 
         <div class="progress-area">
@@ -470,7 +386,6 @@
 
         </div>
 
-
         <div class="question-number">
             Un momento para vos
         </div>
@@ -479,23 +394,7 @@
 
         <div class="answers" id="answers"></div>
 
-
-        <div class="navigation">
-
-            <button class="back-btn" id="backBtn">
-                ← Atrás
-            </button>
-
-            <button class="next-btn" id="nextBtn" disabled>
-                Siguiente
-            </button>
-
-        </div>
-
     </section>
-
-
-    <!-- RESULTADO -->
 
     <section class="result" id="result">
 
@@ -546,7 +445,6 @@
     </section>
 
 </div>
-
 
 <script>
 
@@ -634,82 +532,75 @@ const questions = [
 
 ];
 
-
 const results = {
 
-A: {
-    title: "Necesitás bajar el ruido",
+    A: {
+        title: "Necesitás bajar el ruido",
 
-    paragraphs: [
-        "Tu resultado muestra que en este momento tu mente necesita un poco de calma. Desde que recibiste el diagnóstico, probablemente aparecieron muchas preguntas, pensamientos y cosas que necesitás entender.",
+        paragraphs: [
+            "Tu resultado muestra que en este momento tu mente necesita un poco de calma. Desde que recibiste el diagnóstico, probablemente aparecieron muchas preguntas, pensamientos y cosas que necesitás entender.",
 
-        "No tenés que encontrar todas las respuestas hoy. A veces, darte permiso para parar un momento también es una forma de cuidarte.",
+            "No tenés que encontrar todas las respuestas hoy. A veces, darte permiso para parar un momento también es una forma de cuidarte.",
 
-        "Podés empezar simplemente por respirar, bajar un poco el ritmo y regalarte unos minutos sin exigencias."
-    ],
+            "Podés empezar simplemente por respirar, bajar un poco el ritmo y regalarte unos minutos sin exigencias."
+        ],
 
-    image: "assets/images/1.png"
-},
+        image: "assets/images/1.png"
+    },
 
-B: {
-    title: "Necesitás darte permiso para sentir",
+    B: {
+        title: "Necesitás darte permiso para sentir",
 
-    paragraphs: [
-        "Tu resultado muestra que hay muchas emociones presentes en este momento. Puede ser difícil ponerlas en palabras o incluso entender exactamente qué estás sintiendo.",
+        paragraphs: [
+            "Tu resultado muestra que hay muchas emociones presentes en este momento. Puede ser difícil ponerlas en palabras o incluso entender exactamente qué estás sintiendo.",
 
-        "No necesitás ordenar todo inmediatamente. Lo que sentís merece un espacio y no tenés que juzgarte por tener días buenos y días difíciles.",
+            "No necesitás ordenar todo inmediatamente. Lo que sentís merece un espacio y no tenés que juzgarte por tener días buenos y días difíciles.",
 
-        "Permitirte sentir también puede ser una manera de empezar a encontrar un poco de calma."
-    ],
+            "Permitirte sentir también puede ser una manera de empezar a encontrar un poco de calma."
+        ],
 
-    image: "assets/images/2.jpg"
-},
+        image: "assets/images/2.jpg"
+    },
 
-C: {
-    title: "Necesitás sentirte acompañada",
+    C: {
+        title: "Necesitás sentirte acompañada",
 
-    paragraphs: [
-        "Tu resultado muestra que hoy necesitás sentir que no estás atravesando todo esto sola. A veces poder hablar, ser escuchada y sentirse comprendida puede aliviar mucho.",
+        paragraphs: [
+            "Tu resultado muestra que hoy necesitás sentir que no estás atravesando todo esto sola. A veces poder hablar, ser escuchada y sentirse comprendida puede aliviar mucho.",
 
-        "No tenés que tener todas las respuestas ni poder con todo por tu cuenta. También está bien pedir apoyo y dejarte acompañar.",
+            "No tenés que tener todas las respuestas ni poder con todo por tu cuenta. También está bien pedir apoyo y dejarte acompañar.",
 
-        "Hay momentos en los que simplemente necesitamos sentir que alguien está ahí."
-    ],
+            "Hay momentos en los que simplemente necesitamos sentir que alguien está ahí."
+        ],
 
-    image: "assets/images/3.jpg"
-},
+        image: "assets/images/3.jpg"
+    },
 
-D: {
-    title: "Necesitás volver a vos",
+    D: {
+        title: "Necesitás volver a vos",
 
-    paragraphs: [
-        "Tu resultado muestra que quizás hace tiempo que estás poniendo toda tu energía en los demás y dejándote para después.",
+        paragraphs: [
+            "Tu resultado muestra que quizás hace tiempo que estás poniendo toda tu energía en los demás y dejándote para después.",
 
-        "Entre información, preocupaciones y responsabilidades, es fácil olvidarse de las propias necesidades. Pero vos también necesitás cuidado.",
+            "Entre información, preocupaciones y responsabilidades, es fácil olvidarse de las propias necesidades. Pero vos también necesitás cuidado.",
 
-        "Encontrar aunque sea unos minutos para vos no es egoísmo. También forma parte de cuidar y acompañar."
-    ],
+            "Encontrar aunque sea unos minutos para vos no es egoísmo. También forma parte de cuidar y acompañar."
+        ],
 
-    image: "assets/images/4.jpg"
-}
+        image: "assets/images/4.jpg"
+    }
 
 };
 
-
 let currentQuestion = 0;
-
 let selectedAnswers = Array(questions.length).fill(null);
-
 
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers");
-const nextBtn = document.getElementById("nextBtn");
-const backBtn = document.getElementById("backBtn");
 
 const progressFill = document.getElementById("progressFill");
 const progressText = document.getElementById("progressText");
 const progressPercent = document.getElementById("progressPercent");
-
 
 function loadQuestion() {
 
@@ -736,35 +627,35 @@ function loadQuestion() {
 
         button.onclick = () => {
 
-selectedAnswers[currentQuestion] = answer[0];
+            selectedAnswers[currentQuestion] = answer[0];
 
-document
-    .querySelectorAll(".answer")
-    .forEach(btn => btn.classList.remove("selected"));
+            document
+                .querySelectorAll(".answer")
+                .forEach(btn => btn.classList.remove("selected"));
 
-button.classList.add("selected");
+            button.classList.add("selected");
 
-setTimeout(() => {
+            setTimeout(() => {
 
-    if (currentQuestion < questions.length - 1) {
+                if (currentQuestion < questions.length - 1) {
 
-        currentQuestion++;
+                    currentQuestion++;
 
-        loadQuestion();
+                    loadQuestion();
 
-    } else {
+                } else {
 
-        showResult();
+                    showResult();
 
-    }
+                }
 
-}, 280);
-};
+            }, 280);
+
+        };
 
         answersElement.appendChild(button);
 
     });
-
 
     const percentage =
         Math.round(((currentQuestion + 1) / questions.length) * 100);
@@ -777,61 +668,7 @@ setTimeout(() => {
     progressPercent.textContent =
         percentage + "%";
 
-
-    backBtn.style.visibility =
-        currentQuestion === 0 ? "hidden" : "visible";
-
-
-    nextBtn.textContent =
-        currentQuestion === questions.length - 1
-            ? "Enviar"
-            : "Siguiente";
-
-
-    nextBtn.disabled =
-        selectedAnswers[currentQuestion] === null;
 }
-
-
-nextBtn.onclick = () => {
-
-    if (selectedAnswers[currentQuestion] === null) {
-        return;
-    }
-
-    if (currentQuestion < questions.length - 1) {
-
-        currentQuestion++;
-
-        loadQuestion();
-
-
-    } else {
-
-        showResult();
-
-    }
-
-};
-
-
-backBtn.onclick = () => {
-
-    if (currentQuestion > 0) {
-
-        currentQuestion--;
-
-        loadQuestion();
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-
-};
-
 
 function showResult() {
 
@@ -842,7 +679,6 @@ function showResult() {
         D: 0
     };
 
-
     selectedAnswers.forEach(answer => {
 
         if (answer) {
@@ -850,13 +686,6 @@ function showResult() {
         }
 
     });
-
-
-    /*
-       En caso de empate:
-       gana la letra que apareció primero
-       entre las respuestas seleccionadas.
-    */
 
     let winner = "A";
     let highest = -1;
@@ -873,24 +702,18 @@ function showResult() {
 
     });
 
-
     const result = results[winner];
-
 
     document.getElementById("resultTitle").textContent =
         result.title;
 
-
     document.getElementById("resultImage").src =
         result.image;
 
-
     document.getElementById("resultText").innerHTML =
-
         result.paragraphs
             .map(text => `<p>${text}</p>`)
             .join("");
-
 
     document.getElementById("quiz").style.display = "none";
 
@@ -898,14 +721,12 @@ function showResult() {
 
     document.getElementById("result").style.display = "block";
 
-
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 
 }
-
 
 function restartQuiz() {
 
@@ -927,7 +748,6 @@ function restartQuiz() {
     });
 
 }
-
 
 loadQuestion();
 
