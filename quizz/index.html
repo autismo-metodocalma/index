@@ -1,3 +1,20 @@
+Attachment ElevenLabs_2026-09-26T23_08_49_Karolina - Warm, Calm and Deep_pvc_sp70_s15_sb38_se20_b_m2 (1).mp3 added.None selected
+
+Skip to content
+Using Gmail with screen readers
+1 of 374
+(no subject)
+Inbox
+
+Matias Emmanuel Torres <matiastorresmdq@gmail.com>
+Attachments
+9:41 PM (0 minutes ago)
+to me
+
+ One attachment
+  •  Scanned by Gmail
+quiz_web5_atras-1.txt
+100%
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -190,6 +207,33 @@
     .answer.selected .letter {
         background: #b69abc;
         color: white;
+    }
+
+    .navigation {
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+    }
+
+    .back-btn {
+        border: 1px solid #d8c9d7;
+        background: #fffafd;
+        color: #8a7289;
+        border-radius: 13px;
+        padding: 11px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: .2s ease;
+    }
+
+    .back-btn:hover {
+        background: #f7eff8;
+        border-color: #c6adc9;
+        transform: translateY(-1px);
+    }
+
+    .back-btn.hidden {
+        visibility: hidden;
     }
 
     .result {
@@ -394,6 +438,12 @@
 
         <div class="answers" id="answers"></div>
 
+        <div class="navigation">
+            <button class="back-btn" id="backBtn">
+                ← Atrás
+            </button>
+        </div>
+
     </section>
 
     <section class="result" id="result">
@@ -597,6 +647,7 @@ let selectedAnswers = Array(questions.length).fill(null);
 
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers");
+const backBtn = document.getElementById("backBtn");
 
 const progressFill = document.getElementById("progressFill");
 const progressText = document.getElementById("progressText");
@@ -668,7 +719,25 @@ function loadQuestion() {
     progressPercent.textContent =
         percentage + "%";
 
+    if (currentQuestion === 0) {
+        backBtn.classList.add("hidden");
+    } else {
+        backBtn.classList.remove("hidden");
+    }
+
 }
+
+backBtn.onclick = () => {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        loadQuestion();
+
+    }
+
+};
 
 function showResult() {
 
@@ -755,3 +824,4 @@ loadQuestion();
 
 </body>
 </html>
+Displaying quiz_web5_atras-1.txt.
