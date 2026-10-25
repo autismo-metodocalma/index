@@ -405,6 +405,10 @@ p{margin:0 0 16px}
   background:#e9efe8;
 }
 
+.calma-card:nth-child(5){
+  background:#f7f1e5;
+}
+
 .calma-card:hover{
   transform:translateY(-3px);
   box-shadow:0 14px 30px rgba(74,64,42,.11);
@@ -3533,6 +3537,16 @@ gap: 8px;
     max-width: 360px;
     padding: 15px 18px;
     font-size: .78rem;
+  }
+
+  @media (max-width: 480px) {
+    #panel-01-portada .hero-badge {
+      white-space: normal;
+      max-width: 100%;
+      line-height: 1.4;
+      justify-content: center;
+      text-align: center;
+    }
   }
 
 }
