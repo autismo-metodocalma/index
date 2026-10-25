@@ -3538,18 +3538,23 @@ gap: 8px;
     padding: 15px 18px;
     font-size: .78rem;
   }
+}
+ 
+/* AJUSTE DE ETIQUETA EN CELULARES */
 
-  @media (max-width: 480px) {
-    #panel-01-portada .hero-badge {
-      white-space: normal;
-      max-width: 100%;
-      line-height: 1.4;
-      justify-content: center;
-      text-align: center;
-    }
+@media (max-width: 480px) {
+  #panel-01-portada .hero-badge {
+    font-size: 0.52rem !important;
+    letter-spacing: 0.04em !important;
+    padding: 7px 9px !important;
+    gap: 5px !important;
+    white-space: nowrap !important;
+    min-height: auto !important;
+    margin-bottom: 18px !important;
   }
 
+  #panel-01-portada .hero-badge span {
+    font-size: 0.75rem !important;
+  }
 }
 
-
-}
