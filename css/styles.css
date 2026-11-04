@@ -3540,6 +3540,7 @@ gap: 8px;
   }
 }
  
+
 /* AJUSTE DE ETIQUETA EN CELULARES */
 
 @media (max-width: 480px) {
@@ -3556,8 +3557,11 @@ gap: 8px;
   #panel-01-portada .hero-badge span {
     font-size: 0.75rem !important;
   }
+}
 
-  .announcement-bar {
+/* BARRA DE OFERTA SUPERIOR */
+
+.announcement-bar {
     width: 100%;
     min-height: 34px;
     background: #000;
@@ -3574,11 +3578,12 @@ gap: 8px;
     box-sizing: border-box;
 }
 
+/* AJUSTE PARA CELULARES */
+
 @media (max-width: 480px) {
     .announcement-bar {
         font-size: 9px;
         padding: 9px 8px;
         letter-spacing: 0.2px;
     }
-}
 }
