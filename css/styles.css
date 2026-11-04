@@ -3589,14 +3589,14 @@ gap: 8px;
 }
 
 
-/* MARQUESINA CONTINUA - TODOS LOS DISPOSITIVOS */
+/* MARQUESINA CONTINUA - PC Y CELULARES */
 
 .announcement-bar {
     width: 100% !important;
-    min-height: 42px !important;
+    height: 42px !important;
     padding: 8px 0 !important;
-    background: #000000 !important;
-    color: #ffffff !important;
+    background: #000 !important;
+    color: #fff !important;
     display: block !important;
     overflow: hidden !important;
     white-space: nowrap !important;
@@ -3609,7 +3609,9 @@ gap: 8px;
     flex-wrap: nowrap !important;
     width: max-content !important;
     flex: 0 0 auto !important;
-    animation: oferta-loop 18s linear infinite !important;
+    transform: translateX(0);
+    animation: oferta-loop 22s linear infinite !important;
+    animation-delay: 0s !important;
     will-change: transform;
 }
 
@@ -3617,7 +3619,6 @@ gap: 8px;
     display: flex !important;
     align-items: center !important;
     flex: 0 0 auto !important;
-    flex-wrap: nowrap !important;
     gap: 24px !important;
     padding-right: 24px !important;
 }
@@ -3625,27 +3626,23 @@ gap: 8px;
 .announcement-group span {
     display: block !important;
     flex: 0 0 auto !important;
-    color: #ffffff !important;
+    color: #fff !important;
     font-size: 11px !important;
     font-weight: 800 !important;
     letter-spacing: .3px !important;
 }
 
 @keyframes oferta-loop {
-    from {
-        transform: translate3d(0, 0, 0);
+    0% {
+        transform: translateX(0);
     }
-    to {
-        transform: translate3d(-50%, 0, 0);
+    100% {
+        transform: translateX(-50%);
     }
 }
-
-/* AJUSTE PARA CELULARES */
 
 @media (max-width: 480px) {
     .announcement-group span {
         font-size: 10px !important;
     }
 }
-
-
