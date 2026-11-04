@@ -30,7 +30,7 @@ img{display:block;max-width:100%}
 .panel{position:relative;overflow:hidden;padding:88px 0;border-top:1px solid rgba(62,48,27,.055)}
 .panel>.shell{position:relative;z-index:1}
 
-/* =========================
+/* ========================
    TIPOGRAFÍA / ELEMENTOS
    ========================= */
 h1,h2,h3{font-family:"Brygada 1918",serif;color:var(--brown)}
