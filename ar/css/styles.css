@@ -3589,14 +3589,14 @@ gap: 8px;
 }
 
 
-/* MARQUESINA CONTINUA - TODOS LOS DISPOSITIVOS */
+/* MARQUESINA CONTINUA - PC Y CELULARES */
 
 .announcement-bar {
     width: 100% !important;
-    min-height: 42px !important;
+    height: 42px !important;
     padding: 8px 0 !important;
-    background: #000000 !important;
-    color: #ffffff !important;
+    background: #000 !important;
+    color: #fff !important;
     display: block !important;
     overflow: hidden !important;
     white-space: nowrap !important;
@@ -3609,7 +3609,9 @@ gap: 8px;
     flex-wrap: nowrap !important;
     width: max-content !important;
     flex: 0 0 auto !important;
-    animation: oferta-loop 18s linear infinite !important;
+    transform: translateX(0);
+    animation: oferta-loop 22s linear infinite !important;
+    animation-delay: 0s !important;
     will-change: transform;
 }
 
@@ -3617,7 +3619,6 @@ gap: 8px;
     display: flex !important;
     align-items: center !important;
     flex: 0 0 auto !important;
-    flex-wrap: nowrap !important;
     gap: 24px !important;
     padding-right: 24px !important;
 }
@@ -3625,25 +3626,109 @@ gap: 8px;
 .announcement-group span {
     display: block !important;
     flex: 0 0 auto !important;
-    color: #ffffff !important;
+    color: #fff !important;
     font-size: 11px !important;
     font-weight: 800 !important;
     letter-spacing: .3px !important;
 }
 
 @keyframes oferta-loop {
-    from {
-        transform: translate3d(0, 0, 0);
+    0% {
+        transform: translateX(0);
     }
-    to {
-        transform: translate3d(-50%, 0, 0);
+    100% {
+        transform: translateX(-50%);
     }
 }
-
-/* AJUSTE PARA CELULARES */
 
 @media (max-width: 480px) {
     .announcement-group span {
         font-size: 10px !important;
     }
 }
+
+
+/* MENSAJES ALTERNADOS - SOLO ESCRITORIO */
+
+@media (min-width: 481px) {
+
+    .announcement-bar {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative !important;
+        height: 42px !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        background: #000 !important;
+    }
+
+    .announcement-track {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    .announcement-group {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 !important;
+    }
+
+    .announcement-group:nth-child(2) {
+        display: none !important;
+    }
+
+    .announcement-group span {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        display: block !important;
+        width: max-content !important;
+        max-width: 95% !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+        font-size: 12px !important;
+        color: #fff !important;
+        opacity: 0;
+    }
+
+    .announcement-group span:first-child {
+        animation: mensaje-uno 8s infinite !important;
+    }
+
+    .announcement-group span:nth-child(2) {
+        animation: mensaje-dos 8s infinite !important;
+    }
+
+    @keyframes mensaje-uno {
+        0%, 40% {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        50%, 100% {
+            opacity: 0;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @keyframes mensaje-dos {
+        0%, 45% {
+            opacity: 0;
+            transform: translate(-50%, -50%);
+        }
+        55%, 90% {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
