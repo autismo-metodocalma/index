@@ -3564,7 +3564,7 @@ gap: 8px;
 .announcement-bar {
     width: 100%;
     min-height: 34px;
-    background: #000;
+    background: #556B2F;
     color: #fff;
     display: flex;
     align-items: center;
@@ -3595,7 +3595,7 @@ gap: 8px;
     width: 100% !important;
     height: 42px !important;
     padding: 8px 0 !important;
-    background: #000 !important;
+    background: #556B2F !important;
     color: #fff !important;
     display: block !important;
     overflow: hidden !important;
@@ -3660,7 +3660,7 @@ gap: 8px;
         height: 42px !important;
         overflow: hidden !important;
         padding: 0 !important;
-        background: #000 !important;
+        background: #556B2F !important;
     }
 
     .announcement-track {
