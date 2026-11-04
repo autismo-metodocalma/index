@@ -3588,58 +3588,47 @@ gap: 8px;
     }
 }
 
-/* CORRECCIÓN BARRA SUPERIOR EN ESCRITORIO */
 
-@media (min-width: 481px) {
-    body .announcement-bar {
-        background-color: #000000 !important;
-        color: #ffffff !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        width: 100% !important;
-        min-height: 34px;
-        padding: 8px 12px;
-        font-size: 11px;
-        font-weight: 700;
-        box-sizing: border-box;
-    }
-  }
-
-/* MARQUESINA CONTINUA - PC Y CELULARES */
+/* MARQUESINA CONTINUA - TODOS LOS DISPOSITIVOS */
 
 .announcement-bar {
+    width: 100% !important;
+    min-height: 42px !important;
+    padding: 8px 0 !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    display: block !important;
     overflow: hidden !important;
     white-space: nowrap !important;
-    justify-content: flex-start !important;
-    min-height: 42px;
+    text-align: left !important;
+    box-sizing: border-box;
 }
 
 .announcement-track {
-    display: flex;
-    flex-wrap: nowrap;
-    width: max-content;
-    flex: 0 0 auto;
-    animation: oferta-loop 18s linear infinite;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    flex: 0 0 auto !important;
+    animation: oferta-loop 18s linear infinite !important;
     will-change: transform;
 }
 
 .announcement-group {
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
-    gap: 18px;
-    padding-right: 18px;
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    flex-wrap: nowrap !important;
+    gap: 24px !important;
+    padding-right: 24px !important;
 }
 
 .announcement-group span {
-    display: block;
-    flex: 0 0 auto;
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .3px;
+    display: block !important;
+    flex: 0 0 auto !important;
+    color: #ffffff !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: .3px !important;
 }
 
 @keyframes oferta-loop {
@@ -3651,10 +3640,12 @@ gap: 8px;
     }
 }
 
-/* AJUSTE DE TAMAÑO PARA CELULARES */
+/* AJUSTE PARA CELULARES */
 
 @media (max-width: 480px) {
     .announcement-group span {
-        font-size: 10px;
+        font-size: 10px !important;
     }
 }
+
+
