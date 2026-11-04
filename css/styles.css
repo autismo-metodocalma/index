@@ -3605,4 +3605,50 @@ gap: 8px;
         font-weight: 700;
         box-sizing: border-box;
     }
+  }
+/* MENSAJES EN MOVIMIENTO - SOLO CELULARES */
+
+@media (max-width: 480px) {
+
+    .announcement-bar {
+        overflow: hidden !important;
+        white-space: nowrap !important;
+        justify-content: flex-start !important;
+        min-height: 42px;
+    }
+
+    .announcement-track {
+        display: flex;
+        width: max-content;
+        flex-shrink: 0;
+        animation: oferta-loop 16s linear infinite;
+    }
+
+    .announcement-group {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        gap: 38px;
+        padding-right: 38px;
+    }
+
+    .announcement-group span {
+        display: block;
+        flex-shrink: 0;
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .3px;
+    }
+
+    @keyframes oferta-loop {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+}
+
 }
