@@ -64,7 +64,7 @@ p{margin:0 0 16px}
 .header-change-market{border:0;background:transparent;color:var(--muted);font-size:.76rem;cursor:pointer;padding:8px 0;display:inline-flex;gap:6px;align-items:center}
 .header-change-market:hover{color:var(--olive)}
 
-/* =========================
+/* ========================
    HERO
    ========================= */
 .hero-panel{padding:54px 0 42px;background:linear-gradient(135deg,#f7ecda 0%,#f4e8d4 58%,#eee1ca 100%)}
