@@ -3606,7 +3606,7 @@ gap: 8px;
         box-sizing: border-box;
     }
   }
-/* MENSAJES EN MOVIMIENTO - SOLO CELULARES */
+/* MARQUESINA CONTINUA PARA CELULARES */
 
 @media (max-width: 480px) {
 
@@ -3620,8 +3620,9 @@ gap: 8px;
     .announcement-track {
         display: flex;
         width: max-content;
-        flex-shrink: 0;
-        animation: oferta-loop 16s linear infinite;
+        flex-wrap: nowrap;
+        animation: oferta-loop 14s linear infinite;
+        will-change: transform;
     }
 
     .announcement-group {
