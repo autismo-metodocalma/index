@@ -3630,8 +3630,8 @@ gap: 8px;
         display: flex;
         align-items: center;
         flex: 0 0 auto;
-        gap: 38px;
-        padding-right: 38px;
+        gap: 24px;
+        padding-right: 24px;
     }
 
     .announcement-group span {
@@ -3644,12 +3644,10 @@ gap: 8px;
     }
 
     @keyframes oferta-loop {
-        0% {
-            transform: translate3d(0, 0, 0);
-        }
-
-        100% {
-            transform: translate3d(-50%, 0, 0);
-        }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
     }
 }
