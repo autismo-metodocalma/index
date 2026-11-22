@@ -145,8 +145,8 @@
       try {
         if (typeof window.fbq === 'function') {
           window.fbq('track', 'InitiateCheckout', {
-            value: 19900,
-            currency: 'ARS',
+            value: 14,
+            currency: 'USD',
             content_name: 'Método CALMA',
             content_type: 'product'
           });
