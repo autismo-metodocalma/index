@@ -22,7 +22,7 @@ body{margin:0;color:var(--brown);background:var(--cream);font-family:"DM Sans",s
 body.region-locked{overflow:hidden}
 a{text-decoration:none;color:inherit}
 button,select{font:inherit}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 .shell{width:min(1180px,calc(100% - 48px));margin:0 auto}
 .section-shell{position:relative}
 .narrow-content{max-width:1040px}
@@ -30,7 +30,7 @@ img{display:block;max-width:100%}
 .panel{position:relative;overflow:hidden;padding:88px 0;border-top:1px solid rgba(62,48,27,.055)}
 .panel>.shell{position:relative;z-index:1}
 
-/* =========================
+/* =======================
    TIPOGRAFÍA / ELEMENTOS
    ========================= */
 h1,h2,h3{font-family:"Brygada 1918",serif;color:var(--brown)}
@@ -52,7 +52,7 @@ p{margin:0 0 16px}
 .btn-dark{background:var(--brown)}
 
 
-/* ========================
+/* =======================
    HEADER
    ========================= */
 .topbar{height:76px;position:relative;z-index:100;background:rgba(255,251,243,.94);border-top:3px solid #2e2c28;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
@@ -64,7 +64,7 @@ p{margin:0 0 16px}
 .header-change-market{border:0;background:transparent;color:var(--muted);font-size:.76rem;cursor:pointer;padding:8px 0;display:inline-flex;gap:6px;align-items:center}
 .header-change-market:hover{color:var(--olive)}
 
-/* =========================
+/* ========================
    HERO
    ========================= */
 .hero-panel{padding:54px 0 42px;background:linear-gradient(135deg,#f7ecda 0%,#f4e8d4 58%,#eee1ca 100%)}
@@ -1840,7 +1840,7 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   left:-73px;
   top:57%;
   transform:translateY(-50%) rotate(-8deg);
-  background-image:url('../assets/images/rama-decorativa-izquierda.png');
+  background-image:url('../assets/images/rama-decorativa-izquierda-opt.webp');
   background-position:center;
 }
 
@@ -1850,7 +1850,7 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
   right:-72px;
   top:57%;
   transform:translateY(-50%) rotate(5deg);
-  background-image:url('../assets/images/rama-decorativa.png');
+  background-image:url('../assets/images/rama-decorativa-opt.webp');
   background-position:center;
 }
 
@@ -2139,7 +2139,7 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
     left:-48px;
     top:54%;
     transform:translateY(-50%) rotate(-5deg);
-    background-image:url('../assets/images/rama-decorativa-izquierda.png');
+    background-image:url('../assets/images/rama-decorativa-izquierda-opt.webp');
     background-position:center;
   }
 
@@ -2149,7 +2149,7 @@ body.js-ready #panel-01-portada [data-reveal]{opacity:1;transform:none}
     right:-48px;
     top:54%;
     transform:translateY(-50%) rotate(4deg);
-    background-image:url('../assets/images/rama-decorativa.png');
+    background-image:url('../assets/images/rama-decorativa-opt.webp');
     background-position:center;
   }
 
@@ -3731,4 +3731,34 @@ gap: 8px;
         }
     }
 }
+/* ===== Paso 1 (nov. 2026): franja con los 5 pasos del Método CALMA ===== */
+.benefit-strip.benefit-strip-calma{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.benefit-strip.benefit-strip-calma span{flex:0 1 calc(33.333% - 7px)}
+@media (max-width:600px){.benefit-strip.benefit-strip-calma span{flex:1 1 calc(50% - 10px);max-width:none}}
 
+/* ===== Paso 1: texto de "Quién está detrás" en párrafos ===== */
+.about-copy p{margin:0 0 14px;color:inherit;font-size:inherit;line-height:inherit}
+
+/* ===== Paso 2 (nov. 2026) ===== */
+.hero-price-note{margin:12px 0 0;font-size:.82rem;color:var(--muted);text-align:inherit}
+.hero-price-note strong{color:inherit;font-weight:800}
+.footer-contact{margin:18px 0 6px;font-size:.82rem;line-height:1.6;opacity:.9}
+.footer-contact p{margin:0 0 6px}
+.footer-contact a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.footer-contact .footer-privacy{font-size:.74rem;opacity:.75}
+.faq-card details a{color:inherit;text-decoration:underline}
+@media (max-width: 768px){
+  #panel-01-portada .hero-price-note{order:6 !important;text-align:center !important;margin:12px auto 0 !important}
+}
+
+/* ===== Paso 2: opiniones como tarjetas (texto real, sin captura) ===== */
+.reviews-cards{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;max-width:980px;margin:34px auto 0;align-items:start}
+.review-card{margin:0;background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 28px 24px;box-shadow:var(--shadow-soft);position:relative}
+.review-card::before{content:"“";position:absolute;top:6px;right:22px;font-family:"Brygada 1918",serif;font-size:4.6rem;line-height:1;color:rgba(101,120,58,.14)}
+.review-stars{color:#e0a92b;font-size:1.05rem;letter-spacing:.12em;margin-bottom:12px}
+.review-card blockquote{margin:0 0 20px;font-size:1rem;line-height:1.65;color:#3e352a}
+.review-card figcaption{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:var(--olive);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-family:"DM Sans",sans-serif;flex:0 0 auto}
+.review-card figcaption strong{display:block;font-size:.95rem;color:#2f281f}
+.review-card figcaption small{display:block;font-size:.76rem;color:var(--muted)}
+@media (max-width:760px){.reviews-cards{grid-template-columns:1fr;gap:16px;margin-top:26px}.review-card{padding:22px 20px 18px}.review-card blockquote{font-size:.95rem}}
