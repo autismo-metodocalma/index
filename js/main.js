@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  
+
   const vimeoFrame = document.getElementById('calma-vimeo');
   const videoWrap = document.getElementById('calma-video-wrap');
   const vimeoPlayer = (vimeoFrame && window.Vimeo)
