@@ -532,6 +532,77 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
   </div>
 </footer>
 
+<!-- MEJORAS MOBILE: frase de portada + botón fijo abajo -->
+<style>
+@media (max-width:768px){
+  #panel-01-portada .hero-lead{
+    display:block !important;
+    order:2;
+    max-width:34ch;
+    margin:-4px auto 18px;
+    text-align:center;
+    font-size:.98rem;
+    line-height:1.5;
+    color:#51493d;
+  }
+  .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;align-items:center;gap:12px;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(251,247,239,.97);
+    border-top:1px solid var(--line);
+    box-shadow:0 -8px 24px rgba(65,50,27,.12);
+    transform:translateY(110%);
+    transition:transform .3s ease;
+  }
+  .sticky-cta.is-on{transform:translateY(0)}
+  .sticky-cta__price{font-weight:800;color:var(--brown);font-size:1.02rem;line-height:1.15;white-space:nowrap}
+  .sticky-cta__price small{display:block;font-weight:500;font-size:.68rem;color:var(--muted)}
+  .sticky-cta .btn{flex:1;margin:0;padding:13px 14px;font-size:.8rem;box-shadow:none}
+  body{padding-bottom:78px}
+}
+@media (min-width:769px){.sticky-cta{display:none}}
+</style>
+
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <div class="sticky-cta__price">$19.900<small>Pago único · Garantía 7 días</small></div>
+  <a class="btn" href="https://metodo-calma-argentina.impultienda.ar/checkout/metodo-calma-embudo-principal" data-checkout tabindex="-1">QUIERO EMPEZAR <span>→</span></a>
+</div>
+
+<script>
+/* Botón fijo: aparece cuando ya pasaste el primer botón de compra
+   y se esconde cuando hay otro botón de compra a la vista. */
+(function(){
+  var bar=document.getElementById('sticky-cta');
+  var hero=document.querySelector('.hero-main-cta');
+  if(!bar||!hero||!('IntersectionObserver' in window)) return;
+  var visibles=new Set(), pasoHero=false;
+  function update(){
+    var on=pasoHero && visibles.size===0;
+    bar.classList.toggle('is-on',on);
+    bar.setAttribute('aria-hidden',on?'false':'true');
+    bar.querySelector('a').tabIndex=on?0:-1;
+  }
+  var pendiente=false;
+  function revisarHero(){
+    pendiente=false;
+    pasoHero=hero.getBoundingClientRect().bottom<0;
+    update();
+  }
+  window.addEventListener('scroll',function(){
+    if(!pendiente){ pendiente=true; requestAnimationFrame(revisarHero); }
+  },{passive:true});
+  revisarHero();
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ e.isIntersecting?visibles.add(e.target):visibles.delete(e.target); });
+    update();
+  });
+  document.querySelectorAll('main a.btn[data-checkout], section a.btn[data-checkout]').forEach(function(a){
+    if(!bar.contains(a)) io.observe(a);
+  });
+})();
+</script>
+
 <script src="js/main.js" defer></script>
 </body>
 </html>
