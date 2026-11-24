@@ -160,7 +160,7 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
           <div class="video-wrap" id="calma-video-wrap">
             <iframe
             id="calma-vimeo"
-            src="https://player.vimeo.com/video/1203959106?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&playsinline=1"
+            src="https://player.vimeo.com/video/1203959106?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&playsinline=1"
             width="1920"
             height="1080"
             frameborder="0"
@@ -604,8 +604,13 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
 })();
 </script>
 
-<!-- BOTÓN "TOCÁ PARA ESCUCHAR" sobre el video -->
+<!-- BOTÓN "TOCÁ PARA ESCUCHAR" sobre el video (sin los controles de Vimeo) -->
 <style>
+#calma-tap{
+  position:absolute;inset:0;z-index:25;
+  cursor:pointer;background:transparent;
+  -webkit-tap-highlight-color:transparent;
+}
 #calma-unmute{
   position:absolute;left:50%;top:50%;z-index:30;
   transform:translate(-50%,-50%);
@@ -613,13 +618,22 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
   padding:14px 22px;border:2px solid rgba(255,255,255,.85);border-radius:999px;
   background:rgba(48,39,25,.86);color:#fff;
   font-family:"DM Sans",sans-serif;font-weight:800;font-size:1rem;letter-spacing:.01em;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:pointer;white-space:nowrap;
   animation:calmaLatido 1.8s ease-in-out infinite;
   -webkit-tap-highlight-color:transparent;
 }
 #calma-unmute .icono{font-size:1.35em;line-height:1}
 #calma-unmute:hover{background:rgba(48,39,25,.95)}
-#calma-unmute[hidden]{display:none}
+#calma-unmute[hidden],#calma-play[hidden]{display:none}
+#calma-play{
+  position:absolute;left:50%;top:50%;z-index:30;
+  transform:translate(-50%,-50%);
+  width:72px;height:72px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.85);
+  background:rgba(48,39,25,.86);color:#fff;
+  font-size:1.6rem;line-height:1;padding-left:6px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:pointer;
+}
 @keyframes calmaLatido{
   0%,100%{transform:translate(-50%,-50%) scale(1)}
   50%{transform:translate(-50%,-50%) scale(1.06)}
@@ -631,33 +645,48 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
 </style>
 
 <script>
-/* Botón grande para activar el sonido del video.
+/* Sonido del video.
    Los navegadores no dejan que un video arranque con sonido solo:
-   la persona tiene que tocar algo. Al tocar, activamos el sonido
-   al máximo y volvemos el video al principio. */
+   la persona tiene que tocar algo. Ocultamos los controles de Vimeo
+   y ponemos un solo botón grande. Al tocarlo (o tocar el video),
+   activamos el sonido al máximo y volvemos el video al principio.
+   Después, tocar el video lo pausa o lo sigue reproduciendo. */
 document.addEventListener('DOMContentLoaded',function(){
   var wrap=document.getElementById('calma-video-wrap');
   var frame=document.getElementById('calma-vimeo');
   if(!wrap||!frame||!window.Vimeo) return;
   var player=new Vimeo.Player(frame);
+  var conSonido=false;
+
+  var tap=document.createElement('div');
+  tap.id='calma-tap';
   var btn=document.createElement('button');
-  btn.type='button';
-  btn.id='calma-unmute';
+  btn.type='button'; btn.id='calma-unmute';
   btn.innerHTML='<span class="icono" aria-hidden="true">🔊</span> Tocá para escuchar';
-  wrap.appendChild(btn);
-  function ocultar(){ btn.hidden=true; }
-  btn.addEventListener('click',function(){
-    ocultar();
+  var play=document.createElement('button');
+  play.type='button'; play.id='calma-play'; play.hidden=true;
+  play.setAttribute('aria-label','Reproducir video');
+  play.innerHTML='&#9654;';
+  wrap.appendChild(tap); wrap.appendChild(btn); wrap.appendChild(play);
+
+  function activarSonido(){
+    conSonido=true; btn.hidden=true;
     player.setMuted(false)
       .then(function(){ return player.setVolume(1); })
       .then(function(){ return player.setCurrentTime(0); })
       .then(function(){ return player.play(); })
-      .catch(function(){});
-  });
-  /* Si activa el sonido desde los controles de Vimeo, también lo sacamos. */
-  player.on('volumechange',function(){
-    player.getMuted().then(function(m){ if(!m) ocultar(); }).catch(function(){});
-  });
+      .catch(function(){ player.play().catch(function(){}); });
+  }
+  function alternar(){
+    if(!conSonido){ activarSonido(); return; }
+    player.getPaused().then(function(p){ return p ? player.play() : player.pause(); }).catch(function(){});
+  }
+  btn.addEventListener('click',activarSonido);
+  tap.addEventListener('click',alternar);
+  play.addEventListener('click',function(){ player.play().catch(function(){}); });
+  player.on('pause',function(){ if(conSonido) play.hidden=false; });
+  player.on('play',function(){ play.hidden=true; });
+  player.on('ended',function(){ play.hidden=false; });
 });
 </script>
 
