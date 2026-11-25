@@ -622,6 +622,18 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
   -webkit-tap-highlight-color:transparent;
 }
 #calma-unmute .icono{font-size:1.35em;line-height:1}
+#calma-aviso{
+  position:absolute;left:50%;top:50%;z-index:30;
+  transform:translate(-50%,-50%);
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px;border:2px solid rgba(255,255,255,.85);border-radius:999px;
+  background:rgba(48,39,25,.86);color:#fff;
+  font-family:"DM Sans",sans-serif;font-weight:800;font-size:1rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);white-space:nowrap;
+  pointer-events:none;
+  animation:calmaLatido 1.8s ease-in-out infinite;
+}
+@media (max-width:768px){#calma-aviso{padding:12px 18px;font-size:.92rem}}
 #calma-unmute:hover{background:rgba(48,39,25,.95)}
 @keyframes calmaLatido{
   0%,100%{transform:translate(-50%,-50%) scale(1)}
@@ -652,27 +664,65 @@ document.addEventListener('DOMContentLoaded',function(){
   btn.innerHTML='<span class="icono" aria-hidden="true">🔊</span> Tocá para escuchar';
   wrap.appendChild(tap); wrap.appendChild(btn);
 
+  var base=frame.src
+    .replace(/([?&])muted=1/,'$1muted=0')
+    .replace(/([?&])controls=0/,'$1controls=1')
+    .replace(/([?&])autoplay=\d/,'$1autoplay=0')
+    + '&title=0&byline=0&portrait=0';
+
+  /* Pone un reproductor nuevo en el mismo lugar. */
+  function cargar(conAutoplay){
+    var nuevo=frame.cloneNode(false);
+    nuevo.src=base.replace(/([?&])autoplay=0/,'$1autoplay='+(conAutoplay?1:0));
+    frame.parentNode.replaceChild(nuevo,frame);
+    frame=nuevo;
+    wrap.classList.add('video-is-playing');
+    return nuevo;
+  }
+
+  /* Plan B: algunos navegadores (por ejemplo el de Instagram) no dejan
+     arrancar con sonido y Vimeo lo pone en silencio con su botón
+     "Dejar de silenciar". Entonces dejamos el video quieto con un cartel
+     que NO bloquea el toque: el toque llega al video y arranca CON sonido. */
+  function planB(){
+    var quieto=cargar(false);
+    var aviso=document.createElement('div');
+    aviso.id='calma-aviso';
+    aviso.innerHTML='<span class="icono" aria-hidden="true">▶</span> Tocá el video para escuchar';
+    wrap.appendChild(aviso);
+    try{
+      var p2=new Vimeo.Player(quieto);
+      p2.on('play',function(){
+        aviso.remove();
+        p2.setVolume(1).catch(function(){});
+      });
+    }catch(e){}
+  }
+
   var hecho=false;
   function activarSonido(){
     if(hecho) return; hecho=true;
     tap.remove(); btn.remove();
-    var src=frame.src
-      .replace(/([?&])muted=1/,'$1muted=0')
-      .replace(/([?&])controls=0/,'$1controls=1');
-    if(!/[?&]autoplay=1/.test(src)) src+='&autoplay=1';
-    /* Ponemos un reproductor nuevo en el mismo lugar. */
-    var nuevo=frame.cloneNode(false);
-    nuevo.src=src;
-    frame.parentNode.replaceChild(nuevo,frame);
-    frame=nuevo;
-    wrap.classList.add('video-is-playing');
-    /* Volumen al máximo (Vimeo a veces recuerda un volumen bajo). */
-    if(window.Vimeo){
-      try{
-        var p=new Vimeo.Player(nuevo);
-        p.ready().then(function(){ return p.setVolume(1); }).catch(function(){});
-      }catch(e){}
-    }
+    var nuevo=cargar(true);
+    if(!window.Vimeo) return;
+    var resuelto=false;
+    try{
+      var p=new Vimeo.Player(nuevo);
+      p.on('play',function(){
+        if(resuelto) return; resuelto=true;
+        Promise.all([p.getMuted(),p.getVolume()]).then(function(r){
+          if(r[0] || r[1]===0){ planB(); }
+          else { p.setVolume(1).catch(function(){}); }
+        }).catch(function(){});
+      });
+      /* Si a los 4 segundos no arrancó, también vamos al plan B. */
+      setTimeout(function(){
+        if(resuelto) return;
+        p.getPaused().then(function(pausado){
+          if(pausado && !resuelto){ resuelto=true; planB(); }
+        }).catch(function(){});
+      },4000);
+    }catch(e){}
   }
   btn.addEventListener('click',activarSonido);
   tap.addEventListener('click',activarSonido);
