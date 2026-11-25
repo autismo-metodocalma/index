@@ -603,7 +603,7 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
 })();
 </script>
 
-<!-- BOTÓN "TOCÁ PARA ESCUCHAR" sobre el video (sin los controles de Vimeo) -->
+<!-- BOTÓN "TOCÁ PARA ESCUCHAR" sobre el video (v3: funciona en celulares) -->
 <style>
 #calma-tap{
   position:absolute;inset:0;z-index:25;
@@ -623,16 +623,6 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
 }
 #calma-unmute .icono{font-size:1.35em;line-height:1}
 #calma-unmute:hover{background:rgba(48,39,25,.95)}
-#calma-unmute[hidden],#calma-play[hidden]{display:none}
-#calma-play{
-  position:absolute;left:50%;top:50%;z-index:30;
-  transform:translate(-50%,-50%);
-  width:72px;height:72px;border-radius:50%;
-  border:2px solid rgba(255,255,255,.85);
-  background:rgba(48,39,25,.86);color:#fff;
-  font-size:1.6rem;line-height:1;padding-left:6px;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:pointer;
-}
 @keyframes calmaLatido{
   0%,100%{transform:translate(-50%,-50%) scale(1)}
   50%{transform:translate(-50%,-50%) scale(1.06)}
@@ -645,47 +635,47 @@ src="https://www.facebook.com/tr?id=1498173521900198&ev=PageView&noscript=1" alt
 
 <script>
 /* Sonido del video.
-   Los navegadores no dejan que un video arranque con sonido solo:
-   la persona tiene que tocar algo. Ocultamos los controles de Vimeo
-   y ponemos un solo botón grande. Al tocarlo (o tocar el video),
-   activamos el sonido al máximo y volvemos el video al principio.
-   Después, tocar el video lo pausa o lo sigue reproduciendo. */
+   Los navegadores no dejan que un video arranque con sonido solo.
+   El video arranca en silencio y sin controles, con un solo botón grande.
+   Al tocarlo, volvemos a cargar el video desde el principio CON sonido
+   y con sus controles normales. Recargarlo (en vez de "desmutearlo"
+   desde afuera) es lo que funciona también en celulares. */
 document.addEventListener('DOMContentLoaded',function(){
   var wrap=document.getElementById('calma-video-wrap');
   var frame=document.getElementById('calma-vimeo');
-  if(!wrap||!frame||!window.Vimeo) return;
-  var player=new Vimeo.Player(frame);
-  var conSonido=false;
+  if(!wrap||!frame) return;
 
   var tap=document.createElement('div');
   tap.id='calma-tap';
   var btn=document.createElement('button');
   btn.type='button'; btn.id='calma-unmute';
   btn.innerHTML='<span class="icono" aria-hidden="true">🔊</span> Tocá para escuchar';
-  var play=document.createElement('button');
-  play.type='button'; play.id='calma-play'; play.hidden=true;
-  play.setAttribute('aria-label','Reproducir video');
-  play.innerHTML='&#9654;';
-  wrap.appendChild(tap); wrap.appendChild(btn); wrap.appendChild(play);
+  wrap.appendChild(tap); wrap.appendChild(btn);
 
+  var hecho=false;
   function activarSonido(){
-    conSonido=true; btn.hidden=true;
-    player.setMuted(false)
-      .then(function(){ return player.setVolume(1); })
-      .then(function(){ return player.setCurrentTime(0); })
-      .then(function(){ return player.play(); })
-      .catch(function(){ player.play().catch(function(){}); });
-  }
-  function alternar(){
-    if(!conSonido){ activarSonido(); return; }
-    player.getPaused().then(function(p){ return p ? player.play() : player.pause(); }).catch(function(){});
+    if(hecho) return; hecho=true;
+    tap.remove(); btn.remove();
+    var src=frame.src
+      .replace(/([?&])muted=1/,'$1muted=0')
+      .replace(/([?&])controls=0/,'$1controls=1');
+    if(!/[?&]autoplay=1/.test(src)) src+='&autoplay=1';
+    /* Ponemos un reproductor nuevo en el mismo lugar. */
+    var nuevo=frame.cloneNode(false);
+    nuevo.src=src;
+    frame.parentNode.replaceChild(nuevo,frame);
+    frame=nuevo;
+    wrap.classList.add('video-is-playing');
+    /* Volumen al máximo (Vimeo a veces recuerda un volumen bajo). */
+    if(window.Vimeo){
+      try{
+        var p=new Vimeo.Player(nuevo);
+        p.ready().then(function(){ return p.setVolume(1); }).catch(function(){});
+      }catch(e){}
+    }
   }
   btn.addEventListener('click',activarSonido);
-  tap.addEventListener('click',alternar);
-  play.addEventListener('click',function(){ player.play().catch(function(){}); });
-  player.on('pause',function(){ if(conSonido) play.hidden=false; });
-  player.on('play',function(){ play.hidden=true; });
-  player.on('ended',function(){ play.hidden=false; });
+  tap.addEventListener('click',activarSonido);
 });
 </script>
 
